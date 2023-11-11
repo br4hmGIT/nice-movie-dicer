@@ -4,7 +4,7 @@
 
 body {
   background-color: #323232;
-  color: #dfdfdf;
+  color: #f7f7f7;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -27,7 +27,7 @@ body {
 
 .instruction {
   font-size: 1.4rem;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 #search {
@@ -38,15 +38,16 @@ body {
   width: 20vw;
   padding: 1rem;
   text-align: center;
-  background-color: rgba(233, 231, 231, 0.797);
+  background-color: rgba(233, 231, 231, 0.951);
   border: none;
 }
 
-#search:focus {
+#search:focus,
+#search:active {
   font-size: 1.5em;
   width: 25vw;
   border: none;
-  border-radius: 15px;
+  outline: none;
 }
 
 #search:focus::-moz-placeholder {
