@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicer Movie Dicer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./fav.png" type="image/x-icon">
 </head>
 <body>
-    
+    <!-- Head & Instruction -->
+    <div class="dev"><a href="https://haehnlein-alexander.netlify.app/#start" target="_blank">developer: Alexander Haehnlein</a></div>
         <div class="wrapper">
             <h1 class="headline">Nicer Movie Dicer</h1>
             <p class="instruction">Don't know which movie you want to watch? Just pick a few and have one handed out at random.</p>
                 
-                <input type="search" id="search" placeholder="search for movie...">
+
+    <!-- Inputs -->
+        <div class="input-wrapper">
+            <input type="text" id="search" placeholder="search for movie..." autocomplete="off">
+            <button class="putIn-btn" id="inputBtn">Into the dicer</button>
+            <button class="randomize-btn" id="randomizeBtn">Give me a random movie from dicer</button> 
+        </div>   
+        
+    <!-- Movies -->
+
+        <div class="movie-wrapper" id="movieWrapper">
+
                 
+                    
+            </div>
         </div>
     
+
+    <script src="app.js"></script>
 </body>
 </html>

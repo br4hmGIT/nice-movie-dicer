@@ -1,19 +1,46 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  background-color: #323232;
-  color: #f7f7f7;
+  background-image: url(https://www.ambiance-sticker.com/al_copyrighter.php?image=images/Image/sticker-portrait-jim-carrey-ambiance-sticker-SI_0599.png&sens=25&color=28&forcew=310&forceh=310);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #160c0c;
+  color: whitesmoke;
   font-family: "Courier New", Courier, monospace;
 }
 
+.dev {
+  width: 90%;
+  text-align: end;
+  margin-top: 5vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.dev a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.371);
+  border-left: 1px solid rgba(245, 245, 245, 0.371);
+  padding-left: 0.2rem;
+  color: rgba(245, 245, 245, 0.373);
+  transition: all 0.3s ease-in-out;
+}
+
+.dev:hover,
+.dev a:hover {
+  text-align: end;
+  color: rgba(245, 245, 245, 0.71);
+}
+
 .wrapper {
-  background-color: rgba(0, 0, 0, 0.5294117647);
   padding: 2rem;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: start;
   flex-direction: column;
 }
@@ -21,13 +48,22 @@ body {
 .headline {
   font-size: 3rem;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
 .instruction {
   font-size: 1.4rem;
   margin-bottom: 7rem;
+  width: 20vw;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
 }
 
 #search {
@@ -35,19 +71,27 @@ body {
   font-size: 1.2em;
   width: 10rem;
   transition: all 0.3s ease-in-out;
-  width: 20vw;
+  width: 25vw;
+  min-width: 200px;
   padding: 1rem;
   text-align: center;
   background-color: rgba(233, 231, 231, 0.951);
   border: none;
+  margin-bottom: 3rem;
+  background: linear-gradient(to top, #333 60%, rgb(233, 231, 231) 50%);
+  background-size: 60% 260%;
+  background-position: top left;
 }
 
 #search:focus,
 #search:active {
-  font-size: 1.5em;
+  font-size: 1.2em;
   width: 25vw;
   border: none;
   outline: none;
+  background-position: left bottom;
+  transform: scale(0.97);
+  color: rgb(233, 231, 231);
 }
 
 #search:focus::-moz-placeholder {
@@ -56,4 +100,92 @@ body {
 
 #search:focus::placeholder {
   opacity: 0;
+}
+
+.putIn-btn {
+  border-radius: 25px;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #333;
+  width: 12vw;
+  min-width: 220px;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231) 50%);
+  background-size: 60% 260%;
+  background-position: bottom right;
+}
+
+.putIn-btn:hover {
+  background-position: right top;
+  transform: scale(0.97);
+  color: rgb(233, 231, 231);
+}
+
+.randomize-btn {
+  color: #333;
+  margin-bottom: 3rem;
+  margin-left: 5rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(233, 231, 231, 0.951);
+  width: 25vw;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, #333 60%, rgb(233, 231, 231) 50%);
+  background-size: 250% 260%;
+  background-position: right top;
+}
+
+.randomize-btn:hover {
+  background-position: top left;
+  transform: scale(0.97);
+  color: rgb(233, 231, 231);
+}
+
+.putIn-btn:active,
+.randomize-btn:active {
+  transform: scale(0.8);
+}
+
+.movie-wrapper {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.movie {
+  gap: 0.5rem;
+  min-width: 10%;
+  max-width: 202px;
+  background-color: rgba(39, 21, 21, 0.4196078431);
+  border: 1px solid white;
+  margin: 1rem;
+}
+
+#moviePic {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 200px;
+  height: auto;
+}
+
+.movie-title,
+.movie-year {
+  padding: 5px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
