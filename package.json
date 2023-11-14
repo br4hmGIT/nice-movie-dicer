@@ -1,0 +1,14 @@
+{
+  "name": "nice-movie-dicer",
+  "version": "1.0.0",
+  "description": "App to shuffle some self picked movies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "hellomovie"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.1"
+  }
+}
