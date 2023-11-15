@@ -17,18 +17,22 @@
 
     <!-- Inputs -->
         <div class="input-wrapper">
-            <input type="text" id="search" placeholder="search for movie..." autocomplete="off">
+            <input type="text" id="search" placeholder="search for movie..." autocomplete="off" oninput="findMovie()">
+           
             <button class="putIn-btn" id="inputBtn">Into the dicer</button>
             <button class="randomize-btn" id="randomizeBtn">Give me a random movie from dicer</button> 
         </div>   
-        
+        <div class="dropdown-wrapper">
+            <ul id="dropdown-list">
+                <li><img style="max-height:100px;" src="./testFilm.jpg">Titanic, 1997</li>
+             
+            </ul>
+        </div>
     <!-- Movies -->
 
-        <div class="movie-wrapper" id="movieWrapper">
-
-                
-                    
+        <div class="movie-wrapper" id="movieWrapper">      
             </div>
+
         </div>
     
 

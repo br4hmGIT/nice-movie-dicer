@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(https://www.ambiance-sticker.com/al_copyrighter.php?image=images/Image/sticker-portrait-jim-carrey-ambiance-sticker-SI_0599.png&sens=25&color=28&forcew=310&forceh=310);
+    background-image: url(./backgroundJCr.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #160c0c;
@@ -77,10 +77,9 @@ body {
     min-width: 200px;
     padding: 1rem;
     text-align: center;
-    background-color: rgba(233, 231, 231, 0.951);
     border: none;
     margin-bottom: 3rem;
-    background: linear-gradient(to top, #333 60%, rgb(233, 231, 231) 50%);
+    background: linear-gradient(to top, #333 60%, rgba(233, 231, 231, 0.721) 50%);
     background-size: 60% 260%;
     background-position: top left;
 }
@@ -100,6 +99,27 @@ body {
     opacity: 0;
 }
 
+.dropdown-wrapper {
+    width: 20vw;
+    margin-top: -3rem;
+    margin-left: 20rem;
+}
+#dropdown-list {
+    display: Block;
+    background-color: red;
+}
+#dropdown-list li {
+    list-style-type: none;
+    padding: 8px;
+    cursor: pointer;
+}
+#dropdown-list li:hover {
+    background-color: #f0f0f0;
+}
+
+#dropdown-list li img {
+}
+
 .putIn-btn {
     border-radius: 25px;
     margin-bottom: 3rem;
@@ -114,7 +134,7 @@ body {
     width: 12vw;
     min-width: 220px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231) 50%);
+    background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231, 0.721) 50%);
     background-size: 60% 260%;
     background-position: bottom right;
 }
@@ -135,12 +155,10 @@ body {
     font-size: 1.3rem;
     cursor: pointer;
     border: none;
-    background-color: rgba(233, 231, 231, 0.951);
     width: 25vw;
-
     border-radius: 25px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to right, #333 60%, rgb(233, 231, 231) 50%);
+    background: linear-gradient(to right, #333 60%, rgb(233, 231, 231, 0.721) 50%);
     background-size: 250% 260%;
     background-position: right top;
 }
@@ -155,8 +173,9 @@ body {
     transform: scale(0.8);
 }
 .movie-wrapper {
-    width: 100%;
-    justify-content: center;
+    width: 70%;
+    justify-content: end;
+    align-items: end;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -167,9 +186,8 @@ body {
 .movie {
     gap: 0.5rem;
     min-width: 10%;
-    max-width: 202px;
+    max-width: 200px;
     background-color: #2715156b;
-    border: 1px solid white;
     margin: 1rem;
 }
 
