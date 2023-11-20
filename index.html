@@ -10,10 +10,12 @@
 <body>
     <!-- Head & Instruction -->
     <div class="dev"><a href="https://haehnlein-alexander.netlify.app/#start" target="_blank">developer: Alexander Haehnlein</a></div>
-        <div class="wrapper">
+        
+    <div class="wrapper">
+    <div class="wrapper-head">
             <h1 class="headline">Nicer Movie Dicer</h1>
             <p class="instruction">Don't know which movie you want to watch? Just pick a few and have one handed out at random.</p>
-                
+       </div>         
 
     <!-- Inputs -->
         <div class="input-wrapper">
@@ -22,18 +24,24 @@
             <button class="putIn-btn" id="inputBtn">Into the dicer</button>
             <button class="randomize-btn" id="randomizeBtn">Give me a random movie from dicer</button> 
         </div>   
+    </div>
+
+    <div class="dropdown-movie-wrapper">
         <div class="dropdown-wrapper">
             <ul id="dropdown-list">
-                <li><img style="max-height:100px;" src="./testFilm.jpg">Titanic, 1997</li>
-             
+                <li>
+                    <img style="max-height:100px;" src="./testFilm.jpg">
+                    <p>Titanic, (1997)</p>
+                </li>
             </ul>
         </div>
+    
     <!-- Movies -->
 
-        <div class="movie-wrapper" id="movieWrapper">      
-            </div>
+        <div class="movie-wrapper" id="movieWrapper"></div>
+    </div>
 
-        </div>
+    
     
 
     <script src="app.js"></script>

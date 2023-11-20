@@ -8,11 +8,9 @@ let filmTitle = '';
 let filmYear = '';
 let filmImg = '';
 
+// TRY TMDB API
+
 // API
-
-
-
-
 
 const url = `https://moviesdatabase.p.rapidapi.com/titles/search/title/`;
 const options = {
@@ -26,7 +24,7 @@ const options = {
 async function getMovie() {
 try {
 	const searchTerm = input.value;
-    const searchUrl = `${url}${searchTerm}?titleType=movie&list=most_pop_movies`;
+    const searchUrl = `${url}${searchTerm}?titleType=movie&limit=5&list=most_pop_movies`;
     const response = await fetch(searchUrl, options);
 
     console.log('Das ist meine Response: '+ response);
@@ -58,7 +56,7 @@ let findMovieTitle, findMovieYear, findMovieImg;
 async function findMovie() {
     try {
         const searchTerm = input.value;
-        const searchUrl = `${url}${searchTerm}?titleType=movie&list=most_pop_movies`;
+        const searchUrl = `${url}${searchTerm}?titleType=movie&limit=5&list=most_pop_movies`;
         const response = await fetch(searchUrl, options);
     
         console.log('Das ist meine Response: '+ response);
@@ -75,17 +73,13 @@ async function findMovie() {
         // const resultArray = Object.values(result);
         result.results.forEach(obj => {
             console.log('DIE SCHLEIFE:');
-            const findMovieTitle = obj.originalTitleText.text;
-            const findMovieYear = obj.releaseYear.year;
-            const findMovieImg  = obj.primaryImage.url;
-
-            console.log(findMovieTitle);
-            console.log(findMovieYear);
-            console.log(findMovieImg);
+            const localMovieTitle = obj.originalTitleText.text;
+            const localMovieYear = obj.releaseYear.year;
+            const localMovieImg  = obj.primaryImage.url;
 
             const listItem = document.createElement('li');
             listItem.id = 'movieSuggest'
-            listItem.innerHTML = `<img style="max-height:100px;" src="${findMovieImg}" alt="">${findMovieTitle}, ${findMovieYear}`;
+            listItem.innerHTML = `<img style="max-height:100px;" src="${localMovieImg}" alt="">${localMovieTitle}, ${localMovieYear}`;
             dropdownList.appendChild(listItem);
         });
 
@@ -109,9 +103,10 @@ async function findMovie() {
         }
     
 
-        document.addEventListener('click', function (event) {
-            if (event.target.id === 'movieSuggest') {
+document.addEventListener('click', function (event) {
+            if (event.target.id == 'movieSuggest') {
                 pushMovie();
+                console.log(pushMovie);
             }
         });
 
@@ -119,17 +114,15 @@ async function findMovie() {
 
  input.addEventListener('keypress', async function (e) {
     if (e.key === 'Enter') {
+         
         const previousContent = filmEle.innerHTML;
-        await findMovie();
-        // console.log(filmTitle);
-        if (filmTitle !== undefined) {
-            console.log(filmTitle, filmYear, filmImg);
-            filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
-                                                   <img id="moviePic"src="${filmImg}" alt="">
-                                                     <div class="movie-title" id="movieTitle">${filmTitle}</div>
-                                                    <div class="movie-year" id="movieYear">(${(filmYear)})</div>  
-                                                    </div>`;
-        } 
+        await getMovie();
+        console.log(filmTitle);
+        filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
+                            <img id="moviePic"src="${filmImg}" alt="">
+                            <div class="movie-title" id="movieTitle">${filmTitle}</div>
+                            <div class="movie-year" id="movieYear">(${(filmYear)})</div>  
+                            </div>`;
     }
  });
 

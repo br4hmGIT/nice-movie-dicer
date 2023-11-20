@@ -41,16 +41,21 @@ body {
 
 .wrapper {
     padding: 2rem;
-    height: 100vh;
+    height: 20vh;
     display: flex;
     align-items: start;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
+    margin-top: 3rem;
 }
 
+.wrapper-head {
+    display: flex;
+    flex-direction: column;
+}
 .headline {
     font-size: 3rem;
-    text-align: center;
+    text-align: start;
     margin-bottom: 2rem;
 }
 
@@ -62,9 +67,8 @@ body {
 
 .input-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    justify-content: end;
+    width: auto;
     gap: 1rem;
 }
 
@@ -99,25 +103,35 @@ body {
     opacity: 0;
 }
 
+.dropdown-movie-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
 .dropdown-wrapper {
     width: 20vw;
-    margin-top: -3rem;
-    margin-left: 20rem;
+    margin-top: 2.2rem;
+    margin-left: 5rem;
 }
 #dropdown-list {
-    display: Block;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
 }
 #dropdown-list li {
     list-style-type: none;
-    padding: 8px;
+    padding: 5px;
+    font-size: 1.3rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 #dropdown-list li:hover {
-    background-color: #f0f0f0;
+    background-color: #3c3c3c75;
 }
 
 #dropdown-list li img {
+    overflow: visible;
 }
 
 .putIn-btn {
@@ -174,14 +188,15 @@ body {
 }
 .movie-wrapper {
     width: 70%;
-    justify-content: end;
-    align-items: end;
+
+    justify-content: start;
+    align-items: start;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     flex-shrink: 1;
-    gap: 1.5rem;
-    margin-bottom: 5rem;
+    margin-left: 4rem;
+    margin-top: 3rem;
 }
 .movie {
     gap: 0.5rem;
