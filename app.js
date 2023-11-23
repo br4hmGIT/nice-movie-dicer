@@ -84,7 +84,7 @@ async function findMovie() {
             const obj = result.results[i];
             // console.log('DIE SCHLEIFE:');
             filmTitle = obj.original_title;
-            filmYear = obj.release_date;
+            filmYear = obj.release_date.slice(0, 4);
             filmImg = obj.poster_path;
         
             // console.log(findMovieTitle);
@@ -93,7 +93,7 @@ async function findMovie() {
         
             const listItem = document.createElement('li');
             listItem.id = 'movieSuggest';
-            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>`;
+            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle} (${filmYear})</div>`;
             dropdownList.appendChild(listItem);
         }
 
