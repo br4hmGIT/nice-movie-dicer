@@ -9,8 +9,9 @@
 </head>
 <body>
     <!-- Head & Instruction -->
-    <div class="dev"><a href="https://haehnlein-alexander.netlify.app/#start" target="_blank">developer: Alexander Haehnlein</a></div>
+    
         <div class="wrapper">
+            <div class="dev"><a href="https://haehnlein-alexander.netlify.app/#start" target="_blank">developer: Alexander Haehnlein</a></div>
             <h1 class="headline">Nicer Movie Dicer</h1>
             <p class="instruction">Don't know which movie you want to watch? Just pick a few and have one handed out at random.</p>
                 
@@ -19,19 +20,23 @@
         <div class="input-wrapper">
             <input type="text" id="search" placeholder="search for movie..." autocomplete="off" oninput="findMovie()">
            
-            <!-- <button class="putIn-btn" id="inputBtn">Into the dicer</button> -->
+            <button class="putIn-btn" id="inputBtn">clear list</button>
             <button class="randomize-btn" id="randomizeBtn">Give me a random movie from dicer</button> 
         </div>   
+        
         <div class="dropdown-wrapper">
             <ul id="dropdown-list">
-                <li><img style="max-height:100px;" src="./testFilm.jpg">Titanic, 1997</li>
-             
+                <li><img style="max-height:100px;" src="./testFilm.jpg"><div>Titanic, 1997</div></li>
+                <li><img style="max-height:100px;" src="./testFilm.jpg"><div>Titanic the untold story about the guy, who lost his ticket, 1997</div></li>
+                <li><img style="max-height:100px;" src="./testFilm.jpg"><div>Titanic, 1997</div></li>
             </ul>
+            <div class="movie-wrapper" id="movieWrapper">  
+                   
+            </div>
         </div>
     <!-- Movies -->
 
-        <div class="movie-wrapper" id="movieWrapper">      
-            </div>
+    
 
         </div>
     

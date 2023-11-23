@@ -17,7 +17,6 @@ body {
 .dev {
   width: 90%;
   text-align: end;
-  margin-top: 5vh;
   transition: all 0.3s ease-in-out;
 }
 
@@ -38,7 +37,6 @@ body {
 
 .wrapper {
   padding: 2rem;
-  height: 100vh;
   display: flex;
   align-items: start;
   justify-content: start;
@@ -59,10 +57,11 @@ body {
 
 .input-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   gap: 1rem;
+  padding: 0 5rem 0 2rem;
 }
 
 #search {
@@ -70,7 +69,7 @@ body {
   font-size: 1.2em;
   width: 10rem;
   transition: all 0.3s ease-in-out;
-  width: 25vw;
+  width: 40%;
   min-width: 200px;
   padding: 1rem;
   text-align: center;
@@ -84,7 +83,7 @@ body {
 #search:focus,
 #search:active {
   font-size: 1.2em;
-  width: 25vw;
+  width: 45%;
   border: none;
   outline: none;
   background-position: left bottom;
@@ -101,20 +100,30 @@ body {
 }
 
 .dropdown-wrapper {
-  width: 20vw;
+  width: 100%;
   margin-top: -3rem;
-  margin-left: 20rem;
+  display: flex;
+  gap: 10rem;
 }
 
 #dropdown-list {
-  display: Block;
-  background-color: red;
+  display: block;
+  min-width: 30%;
+  max-width: 35%;
+  padding-left: 7rem;
 }
 
 #dropdown-list li {
+  min-width: 20%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   list-style-type: none;
   padding: 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  background-color: black;
 }
 
 #dropdown-list li:hover {
@@ -176,9 +185,9 @@ body {
 }
 
 .movie-wrapper {
-  width: 70%;
-  justify-content: end;
-  align-items: end;
+  width: 60vw;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

@@ -93,7 +93,7 @@ async function findMovie() {
         
             const listItem = document.createElement('li');
             listItem.id = 'movieSuggest';
-            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">${filmTitle}, ${filmYear}`;
+            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>`;
             dropdownList.appendChild(listItem);
         }
 
