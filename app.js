@@ -4,7 +4,7 @@
 const input = document.getElementById('search');
 const dropdownList = document.getElementById('dropdown-list');
 const movieSuggest = document.getElementById('movieSuggest');
-const inputButton = document.getElementById('clearBtn')
+const clearBtn = document.getElementById('clearBtn')
 const filmEle = document.getElementById('movieWrapper')
 let filmTitle = '';
 let filmYear = '';
@@ -130,8 +130,11 @@ async function findMovie() {
 
 
 
+// CLEAR BUTTON
 
-
+clearBtn.addEventListener('click', function (event) {
+    filmEle.remove();
+});
 
 //  input.addEventListener('keypress', async function (e) {
 //     if (e.key === 'Enter') {
