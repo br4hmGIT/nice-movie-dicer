@@ -9,7 +9,8 @@ body {
     background-image: url(./backgroundJCr.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #160c0c;
+    background: rgb(32, 32, 32);
+    background: linear-gradient(165deg, rgb(3, 3, 3) 80%, rgba(232, 214, 12, 0.705) 90%);
 
     // background-color: #202020;
     color: whitesmoke;
