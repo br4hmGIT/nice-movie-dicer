@@ -87,7 +87,7 @@ body {
 #search:focus,
 #search:active {
     font-size: 1.2em;
-    width: 45%;
+    width: 41%;
     border: none;
     outline: none;
     background-position: left bottom;
@@ -101,7 +101,7 @@ body {
 
 .dropdown-wrapper {
     width: 100%;
-    margin-top: -3rem;
+    margin-top: -3.3rem;
     display: flex;
     gap: 10rem;
 }
@@ -116,16 +116,18 @@ body {
     min-width: 20%;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style-type: none;
     padding: 8px;
+    padding-bottom: 1rem;
     cursor: pointer;
     font-weight: bold;
     font-size: 1.4rem;
-    background-color: black;
+    background-color: #3333333c;
 }
 #dropdown-list li:hover {
     background-color: #f0f0f0;
+    color: #333;
 }
 
 .putIn-btn {
