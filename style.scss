@@ -129,6 +129,12 @@ body {
     color: #333;
 }
 
+#dropdown-list li img,
+#dropdown-list li div {
+    position: relative;
+    z-index: 0;
+}
+
 .putIn-btn {
     border-radius: 25px;
     margin-bottom: 3rem;

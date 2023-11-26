@@ -92,7 +92,7 @@ async function findMovie() {
             // console.log(findMovieImg);
         
             const listItem = document.createElement('li');
-            listItem.id = 'movieSuggest';
+            listItem.classList.add('movieSuggest'); // Verwenden Sie eine Klasse statt einer ID
             listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>`;
             dropdownList.appendChild(listItem);
         }
@@ -105,19 +105,20 @@ async function findMovie() {
 
 
     document.addEventListener('click', function (event) {
-        if (event.target.id === 'movieSuggest') {
-            const clickedItem = event.target;
-    
-            // Extrahiere Informationen aus dem HTML des geklickten Elements
-            const clickedTitle = clickedItem.textContent.split(',')[0].trim();
-            const clickedYear = clickedItem.textContent.split(',')[1].slice(1, 5);
-            const clickedImg = clickedItem.querySelector('img').src;
+          // Überprüfen, ob das geklickte Element oder eines seiner Eltern die Klasse 'movieSuggest' hat
+        const clickedItem = event.target.closest('.movieSuggest');
+        if (clickedItem) {
+        // Extrahiere Informationen aus dem HTML des geklickten Elements
+        const clickedTitle = clickedItem.querySelector('div').textContent.split(',')[0].trim();
+        const clickedYear = clickedItem.querySelector('div').textContent.split(',')[1].slice(1, 5);
+        const clickedImg = clickedItem.querySelector('img').src;
     
             // Rufe die pushMovie-Funktion auf und übergebe die Informationen des geklickten Films
             pushMovie(clickedTitle, clickedYear, clickedImg);
         }
     });
-    
+
+
     async function pushMovie(title, year, img) {
         const previousContent = filmEle.innerHTML;
         filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
