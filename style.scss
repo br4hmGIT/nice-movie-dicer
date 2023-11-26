@@ -6,12 +6,11 @@
 }
 
 body {
+    background: rgb(7, 7, 7);
+
     background-image: url(./backgroundJCr.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background: rgb(32, 32, 32);
-    background: linear-gradient(165deg, rgb(3, 3, 3) 80%, rgba(232, 214, 12, 0.705) 90%);
-
     // background-color: #202020;
     color: whitesmoke;
     font-family: "Courier New", Courier, monospace;
@@ -79,7 +78,7 @@ body {
     text-align: center;
     border: none;
     margin-bottom: 3rem;
-    background: linear-gradient(to top, #333 60%, rgba(233, 231, 231, 0.721) 50%);
+    background: linear-gradient(to top, #333 60%, rgba(233, 231, 231, 0.855) 50%);
     background-size: 60% 260%;
     background-position: top left;
 }
@@ -144,7 +143,7 @@ body {
     width: 12vw;
     min-width: 220px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231, 0.721) 50%);
+    background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231, 0.855) 50%);
     background-size: 60% 260%;
     background-position: bottom right;
 }
@@ -168,7 +167,7 @@ body {
     width: 15vw;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to right, #333 60%, rgb(233, 231, 231, 0.721) 50%);
+    background: linear-gradient(to right, #333 60%, rgb(233, 231, 231, 0.855) 50%);
     background-size: 250% 260%;
     background-position: right top;
 }
