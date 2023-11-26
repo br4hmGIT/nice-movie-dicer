@@ -132,8 +132,8 @@ async function findMovie() {
 
 // CLEAR BUTTON
 
-clearBtn.addEventListener('click', function (event) {
-    filmEle.remove();
+clearBtn.addEventListener('click', async function (previousContent) {
+    filmEle.remove(previousContent);
 });
 
 //  input.addEventListener('keypress', async function (e) {
