@@ -108,7 +108,7 @@ body {
 
 .dropdown-wrapper {
     width: 100%;
-    margin-top: -3.3rem;
+    margin-top: -3.4rem;
     display: flex;
     gap: 10rem;
 }
@@ -116,8 +116,7 @@ body {
     display: block;
     min-width: 30%;
     max-width: 35%;
-
-    padding-left: 7rem;
+    margin-left: 2.5rem;
 }
 
 #dropdown-list li {
@@ -128,7 +127,8 @@ body {
     list-style-type: none;
     // padding: 8px;
     // padding-bottom: 1rem;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.504);
+
     // border-bottom-right-radius: 10px 10px;
     cursor: pointer;
     font-weight: bold;
