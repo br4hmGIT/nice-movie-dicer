@@ -212,7 +212,8 @@ body {
     object-fit: cover;
     min-width: 200px;
     max-width: 200px;
-
+    max-height: 280px;
+    min-height: 280px;
     z-index: 1;
     position: relative;
 }
