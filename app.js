@@ -122,17 +122,20 @@ async function findMovie() {
     async function pushMovie(title, year, img) {
         const previousContent = filmEle.innerHTML;
         filmEle.innerHTML = `<div class="movie" id="movie">
-            <img id="moviePic" src="${img}" alt="">
+            <div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
+            <img id="moviePic" src="${img}" alt="">      
             <div class="movie-title" id="movieTitle">${title}</div>
             <div class="movie-year" id="movieYear">(${year})</div>  
-        </div>` + previousContent;
+            </div>
+            ` 
+            + previousContent;
 
         
     }
 
 
 
-// CLEAR BUTTON
+// CLEAR-ALL BUTTON
 
 clearBtn.addEventListener('click', async function () {
     filmEle.innerHTML = '';
