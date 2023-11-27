@@ -85,7 +85,7 @@ body {
     padding: 1rem;
     text-align: center;
     border: none;
-    margin-bottom: 3rem;
+
     background: linear-gradient(to top, #333 60%, rgba(233, 231, 231, 0.855) 50%);
     background-size: 60% 260%;
     background-position: top left;
@@ -108,7 +108,7 @@ body {
 
 .dropdown-wrapper {
     width: 100%;
-    margin-top: -3.4rem;
+
     display: flex;
     gap: 10rem;
 }
@@ -152,7 +152,7 @@ body {
 
 .clear-btn {
     border-radius: 25px;
-    margin-bottom: 3rem;
+
     padding: 1rem;
     font-family: inherit;
     font-weight: bold;
@@ -176,21 +176,24 @@ body {
 }
 
 .randomize-btn {
-    color: #333;
-    margin-bottom: 3rem;
+    color: #000000de;
+
     margin-left: 15rem;
     padding: 1rem;
     font-family: inherit;
     font-weight: bold;
     font-size: 1.3rem;
     cursor: pointer;
-    border: 5px solid rgb(181, 120, 7);
+    border: none;
     width: 15vw;
-    border-radius: 5px;
+    border-radius: 25px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to right, #333 60%, rgb(233, 231, 231, 0.855) 50%);
+
+    background: linear-gradient(to right, #333 60%, rgba(215, 137, 11, 0.843) 50%);
     background-size: 250% 260%;
     background-position: right top;
+    position: absolute;
+    right: 2rem;
 }
 .randomize-btn:hover {
     background-position: top left;
@@ -199,7 +202,7 @@ body {
     border-radius: 25px;
 }
 
-.putIn-btn:active,
+.clear-btn:active,
 .randomize-btn:active {
     transform: scale(0.8);
 }
@@ -207,7 +210,7 @@ body {
 .movie-wrapper {
     width: 60vw;
     justify-content: start;
-    align-items: center;
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
