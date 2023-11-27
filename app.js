@@ -120,6 +120,7 @@ async function findMovie() {
 
 
     async function pushMovie(title, year, img) {
+        
         const previousContent = filmEle.innerHTML;
         filmEle.innerHTML = `<div class="movie" id="movie">
             <div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
@@ -130,7 +131,15 @@ async function findMovie() {
             ` 
             + previousContent;
 
-        
+            
+
+        // CLEAR ONE MOVIE BUTTON
+            const clearSingleMovieBtn = document.querySelector('.remove-movie-button')
+            clearSingleMovieBtn.addEventListener('click', function() {
+            var parentElement = clearSingleMovieBtn.parentNode.parentNode;
+            parentElement.remove();
+            });
+
     }
 
 
@@ -140,6 +149,8 @@ async function findMovie() {
 clearBtn.addEventListener('click', async function () {
     filmEle.innerHTML = '';
 });
+
+
 
 //  input.addEventListener('keypress', async function (e) {
 //     if (e.key === 'Enter') {
