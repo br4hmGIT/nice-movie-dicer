@@ -15,7 +15,7 @@ body {
 }
 
 .dev {
-  width: 90%;
+  width: 100%;
   text-align: end;
   transition: all 0.3s ease-in-out;
 }
@@ -35,6 +35,11 @@ body {
   color: rgba(245, 245, 245, 0.71);
 }
 
+.dev img {
+  padding-top: 10px;
+  max-height: 30px;
+}
+
 .wrapper {
   padding: 2rem;
   display: flex;
@@ -48,6 +53,9 @@ body {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
 }
 
 .instruction {
@@ -198,7 +206,7 @@ body {
 }
 
 .movie-wrapper {
-  width: 60vw;
+  width: 65vw;
   justify-content: start;
   align-items: center;
   display: flex;
