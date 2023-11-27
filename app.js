@@ -101,7 +101,7 @@ async function findMovie() {
     } catch (error) {
         console.error(error);
     }
-    }
+}
 
 
     document.addEventListener('click', function (event) {
@@ -114,13 +114,12 @@ async function findMovie() {
         const clickedImg = clickedItem.querySelector('img').src;
     
             // Rufe die pushMovie-Funktion auf und übergebe die Informationen des geklickten Films
-            pushMovie(clickedTitle, clickedYear, clickedImg);
+            pushMovie(clickedTitle, clickedYear, clickedImg);    
         }
     });
 
 
-    async function pushMovie(title, year, img) {
-        
+    async function pushMovie(title, year, img) {  
         const previousContent = filmEle.innerHTML;
         filmEle.innerHTML = `<div class="movie" id="movie">
             <div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
@@ -131,15 +130,15 @@ async function findMovie() {
             ` 
             + previousContent;
 
-            
-
-        // CLEAR ONE MOVIE BUTTON
-            const clearSingleMovieBtn = document.querySelector('.remove-movie-button')
-            clearSingleMovieBtn.addEventListener('click', function() {
-            var parentElement = clearSingleMovieBtn.parentNode.parentNode;
-            parentElement.remove();
+            document.addEventListener('click', function (event) {
+                const clearSingleMovieBtn = event.target.closest('.movie');
+                if (clearSingleMovieBtn) {
+                    var parentElement = clearSingleMovieBtn.closest('.movie');
+                    if (parentElement) {
+                        parentElement.remove();
+                    }
+                }
             });
-
     }
 
 
