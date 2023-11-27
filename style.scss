@@ -60,7 +60,7 @@ body {
 
 .input-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     width: 100%;
     gap: 1rem;
@@ -163,7 +163,7 @@ body {
 .randomize-btn {
     color: #333;
     margin-bottom: 3rem;
-    margin-left: 5rem;
+    margin-left: 15rem;
     padding: 1rem;
     font-family: inherit;
     font-weight: bold;

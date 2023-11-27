@@ -127,16 +127,16 @@ async function findMovie() {
             <div class="movie-year" id="movieYear">(${year})</div>  
         </div>`;
 
-        clearBtn.addEventListener('click', async function () {
-            filmEle.innerHTML = '';
-        });
+        
     }
 
 
 
 // CLEAR BUTTON
 
-
+clearBtn.addEventListener('click', async function () {
+    filmEle.innerHTML = '';
+});
 
 //  input.addEventListener('keypress', async function (e) {
 //     if (e.key === 'Enter') {
