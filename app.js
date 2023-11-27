@@ -149,6 +149,7 @@ async function findMovie() {
     
         const movieElement = document.createElement('div');
         movieElement.classList.add('movie');
+        
         movieElement.id = id;
         movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
             <img id="moviePic" src="${img}" alt="">

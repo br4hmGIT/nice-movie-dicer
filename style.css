@@ -223,6 +223,18 @@ body {
   margin-top: 3rem;
 }
 
+.movieFadeIn {
+  animation: growIntoView 0.5s ease-in-out;
+}
+
+@keyframes growIntoView {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
 #moviePic {
   -o-object-fit: cover;
      object-fit: cover;
@@ -241,15 +253,18 @@ body {
 }
 
 .alreadyAdded {
-  animation: alreadyAdded 0.5s ease-in-out;
+  animation: alreadyAdded 0.3s ease-in-out;
 }
 
 @keyframes alreadyAdded {
-  from {
-    transform: scale(105%);
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
   }
   to {
-    transform: scale(100%);
+    transform: rotate(0deg);
   }
 }
 .remove-movie-button-wrapper {
