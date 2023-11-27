@@ -23,42 +23,42 @@ const options = {
 
 //  ++++++++++++++++
 
-async function getMovie() {
-    try {
-	const searchTerm = input.value;
-    const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
+// async function getMovie() {
+//     try {
+// 	const searchTerm = input.value;
+//     const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
 
-    const response = await fetch(searchUrl, options);
+//     const response = await fetch(searchUrl, options);
 
-    // console.log('Das ist meine Response: '+ response);
+//     console.log('Das ist meine Response: '+ response);
 
-        if (!response.ok) {
-                alert(`${response.status}`);
-        }
+//         if (!response.ok) {
+//                 alert(`${response.status}`);
+//         }
 
-    const result = await response.json();
-    console.log(result.results.slice(0, 5));
+//     const result = await response.json();
+//     console.log(result.results.slice(0, 5));
 
-        if (result.results.length == 0) {
-            alert(`No Film Found`);
-            filmTitle = undefined;      
-        }
+//         if (result.results.length == 0) {
+//             alert(`No Film Found`);
+//             filmTitle = undefined;      
+//         }
 
-    filmTitle = (result.results[0].original_title);
-    filmYear = (result.results[0].release_date);
-    filmImg = (result.results[0].poster_path);
-    console.log(filmTitle);
+//     filmTitle = (result.results[0].original_title);
+//     filmYear = (result.results[0].release_date);
+//     filmImg = (result.results[0].poster_path);
+//     console.log(filmTitle);
 	
-        } catch (error) {
-            console.error(error);
-        }
-}
+//         } catch (error) {
+//             console.error(error);
+//         }
+// }
 
 
 //  ++++++++++++++++
 
 
-let findMovieTitle, findMovieYear, findMovieImg;
+let findMovieTitle, findMovieYear, findMovieImg, filmID;
 
 async function findMovie() {
     try {
@@ -66,15 +66,15 @@ async function findMovie() {
         const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
         const response = await fetch(searchUrl, options);
     
-        // console.log('Das ist meine Response: '+ response);
+        console.log('Das ist meine Response: '+ response);
     
         
     
         const result = await response.json();
         result.results.slice(0, 5);
 
-        // console.log('Das Result: ')
-        // console.log(result);
+        console.log('Das Result: ')
+        console.log(result);
 
         dropdownList.innerHTML = '';
         
@@ -86,14 +86,21 @@ async function findMovie() {
             filmTitle = obj.original_title;
             filmYear = obj.release_date.slice(0, 4);
             filmImg = obj.poster_path;
+            filmID = obj.id;
+            
         
             // console.log(findMovieTitle);
             // console.log(findMovieYear);
             // console.log(findMovieImg);
-        
+            
+            
             const listItem = document.createElement('li');
             listItem.classList.add('movieSuggest'); // Verwenden Sie eine Klasse statt einer ID
-            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>`;
+            listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>
+            <p id="movieID">${filmID}</p>
+            `
+           
+            ;
             dropdownList.appendChild(listItem);
         }
 
@@ -104,6 +111,8 @@ async function findMovie() {
 }
 
 
+    const addedMovieIds = new Set();
+
     document.addEventListener('click', function (event) {
           // Überprüfen, ob das geklickte Element oder eines seiner Eltern die Klasse 'movieSuggest' hat
         const clickedItem = event.target.closest('.movieSuggest');
@@ -112,33 +121,44 @@ async function findMovie() {
         const clickedTitle = clickedItem.querySelector('div').textContent.split(',')[0].trim();
         const clickedYear = clickedItem.querySelector('div').textContent.split(',')[1].slice(1, 5);
         const clickedImg = clickedItem.querySelector('img').src;
+        const clickedID = clickedItem.querySelector('p').textContent;
+
+        // console.log('DAS IST ES:' + clickedID);
     
             // Rufe die pushMovie-Funktion auf und übergebe die Informationen des geklickten Films
-            pushMovie(clickedTitle, clickedYear, clickedImg);    
+         
+
+            if (!document.getElementById(clickedID)) {
+                pushMovie(clickedTitle, clickedYear, clickedImg, clickedID);
+            } else {
+                filmEle.classList.add('alreadyAdded');
+            }
         }
     });
 
 
-    async function pushMovie(title, year, img) {  
+    async function pushMovie(title, year, img, id) {
         const previousContent = filmEle.innerHTML;
-        filmEle.innerHTML = `<div class="movie" id="movie">
-            <div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
-            <img id="moviePic" src="${img}" alt="">      
-            <div class="movie-title" id="movieTitle">${title}</div>
-            <div class="movie-year" id="movieYear">(${year})</div>  
-            </div>
-            ` 
-            + previousContent;
-
-            document.addEventListener('click', function (event) {
-                const clearSingleMovieBtn = event.target.closest('.movie');
-                if (clearSingleMovieBtn) {
-                    var parentElement = clearSingleMovieBtn.closest('.movie');
-                    if (parentElement) {
-                        parentElement.remove();
-                    }
+    
+        const movieElement = document.createElement('div');
+        movieElement.classList.add('movie');
+        movieElement.id = id;
+        movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
+            <img id="moviePic" src="${img}" alt="">
+            <div class="movie-title">${title}</div>
+            <div class="movie-year">(${year})</div>`;
+    
+        filmEle.innerHTML = previousContent + movieElement.outerHTML;
+    
+        document.addEventListener('click', function (event) {
+            const clearSingleMovieBtn = event.target.closest('.remove-movie-button');
+            if (clearSingleMovieBtn) {
+                const parentElement = clearSingleMovieBtn.closest('.movie');
+                if (parentElement) {
+                    parentElement.remove();
                 }
-            });
+            }
+        });
     }
 
 
