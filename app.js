@@ -4,8 +4,9 @@
 const input = document.getElementById('search');
 const dropdownList = document.getElementById('dropdown-list');
 const movieSuggest = document.getElementById('movieSuggest');
-const clearBtn = document.getElementById('clearBtn')
-const filmEle = document.getElementById('movieWrapper')
+const clearBtn = document.getElementById('clearBtn');
+const filmEle = document.getElementById('movieWrapper');
+
 let filmTitle = '';
 let filmYear = '';
 let filmImg = '';
@@ -131,7 +132,13 @@ async function findMovie() {
             if (!document.getElementById(clickedID)) {
                 pushMovie(clickedTitle, clickedYear, clickedImg, clickedID);
             } else {
-                filmEle.classList.add('alreadyAdded');
+                const movieElementSingle = document.getElementById(clickedID);
+                movieElementSingle.classList.add('alreadyAdded');
+                setTimeout(function() {
+                    // Entferne die Klasse nach dem Warten
+                    movieElementSingle.classList.remove('alreadyAdded');
+                }, 500);
+                
             }
         }
     });

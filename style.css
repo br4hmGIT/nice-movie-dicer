@@ -231,6 +231,18 @@ body {
   font-weight: bold;
 }
 
+.alreadyAdded {
+  animation: alreadyAdded 0.5s ease-in-out;
+}
+
+@keyframes alreadyAdded {
+  from {
+    transform: scale(105%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
 .remove-movie-button-wrapper {
   display: flex;
   justify-content: end;
