@@ -159,12 +159,17 @@ async function findMovie() {
         filmEle.innerHTML = previousContent + movieElement.outerHTML;
     
         document.addEventListener('click', function (event) {
+            
             const clearSingleMovieBtn = event.target.closest('.remove-movie-button');
             if (clearSingleMovieBtn) {
                 const parentElement = clearSingleMovieBtn.closest('.movie');
-                if (parentElement) {
-                    parentElement.remove();
-                }
+                parentElement.classList.add('fadeOutAnimation');
+                setTimeout(function() {
+                    if (parentElement) {
+                        parentElement.remove();
+                    }
+                }, 200);
+               
             }
         });
     }

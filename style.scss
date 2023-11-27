@@ -239,6 +239,21 @@ body {
     }
 }
 
+.fadeOutAnimation {
+    animation: fadeOutAnimation 0.2s ease-in-out;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
 #moviePic {
     object-fit: cover;
     min-width: 200px;
