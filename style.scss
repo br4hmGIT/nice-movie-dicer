@@ -190,7 +190,7 @@ body {
 }
 .movie-wrapper {
     width: 60vw;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -204,7 +204,7 @@ body {
     min-width: 10%;
     max-width: 200px;
     background-color: #2715156b;
-    margin: 1rem;
+    margin-top: 3rem;
 }
 
 #moviePic {

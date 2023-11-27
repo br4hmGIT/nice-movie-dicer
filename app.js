@@ -121,11 +121,11 @@ async function findMovie() {
 
     async function pushMovie(title, year, img) {
         const previousContent = filmEle.innerHTML;
-        filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
+        filmEle.innerHTML = `<div class="movie" id="movie">
             <img id="moviePic" src="${img}" alt="">
             <div class="movie-title" id="movieTitle">${title}</div>
             <div class="movie-year" id="movieYear">(${year})</div>  
-        </div>`;
+        </div>` + previousContent;
 
         
     }
