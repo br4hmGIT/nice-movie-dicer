@@ -39,7 +39,7 @@ async function findMovie() {
 
         for (let i = 0; i < 5 && i < result.results.length; i++) {
             const obj = result.results[i];
-            filmTitle = obj.original_title;
+            filmTitle = obj.title;
             filmYear = obj.release_date.slice(0, 4);
             filmImg = obj.poster_path;
             filmID = obj.id;
