@@ -70,11 +70,11 @@ body {
   align-items: center;
   width: 100%;
   gap: 1rem;
-  padding: 0 5rem 0 2rem;
+  padding: 0 5rem 0 2.5rem;
 }
 
 #search {
-  border-radius: 25px;
+  border-radius: 5px;
   font-size: 1.2em;
   width: 10rem;
   transition: all 0.3s ease-in-out;
@@ -91,11 +91,10 @@ body {
 #search:focus,
 #search:active {
   font-size: 1.2em;
-  width: 41%;
+  width: 40%;
   border: none;
   outline: none;
   background-position: left bottom;
-  transform: scale(0.97);
   color: rgb(233, 231, 231);
 }
 
@@ -110,13 +109,14 @@ body {
 .dropdown-wrapper {
   width: 100%;
   display: flex;
+  gap: 2rem;
 }
 
 #dropdown-list {
   display: block;
-  min-width: 30%;
-  max-width: 35%;
-  margin-left: 2.5rem;
+  min-width: 39.5%;
+  max-width: 39.5%;
+  margin-top: -0.5px;
 }
 
 #dropdown-list li {
@@ -125,7 +125,6 @@ body {
   align-items: center;
   gap: 1.2rem;
   list-style-type: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.504);
   cursor: pointer;
   font-weight: bold;
   font-size: 1.4rem;
@@ -210,14 +209,13 @@ body {
 .movie-wrapper {
   width: 60vw;
   justify-content: start;
+  margin-top: 3rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   flex-shrink: 1;
-  gap: 1.5rem;
-  margin-bottom: 5rem;
-  position: absolute;
-  right: 0;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .movie {
@@ -225,7 +223,6 @@ body {
   min-width: 10%;
   max-width: 200px;
   background-color: rgba(39, 21, 21, 0.4196078431);
-  margin-top: 3rem;
 }
 
 .fadeInAnimation {
