@@ -139,7 +139,7 @@ function getRandomMovieElement() {
         const randomIndex = Math.floor(Math.random() * movieElements.length);
         const randomMovieElement = movieElements[randomIndex];
     
-        filmEle.innerHTML = '';
+        
         filmEle.innerHTML = `<div>${randomMovieElement.outerHTML}</div>`;
         console.log('Zufälliges Movie-Element:', randomMovieElement.querySelector('.movie-title').textContent);
     } else {
@@ -149,7 +149,38 @@ function getRandomMovieElement() {
 
 diceBtn.addEventListener('click', function () {
     getRandomMovieElement();
+    addBackdrop();
 });
+
+
+// Backdrop
+
+function addBackdrop() {
+    // Erstelle ein neues div-Element für den Hintergrund
+    const backdropElement = document.createElement('div');
+    backdropElement.classList.add('backdrop'); // Füge eine Klasse hinzu, um das Styling zu definieren
+
+    // Füge das Hintergrundelement zum Body hinzu
+    document.body.appendChild(backdropElement);
+
+    // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
+
+
+    // Hier kannst du zusätzliche Aktionen ausführen, wenn das Hintergrundelement hinzugefügt wird
+    console.log('Backdrop wurde hinzugefügt.');
+
+    // Backdrop entfernen
+    backdropElement.addEventListener('click', function(){
+        backdropElement.remove();
+    });
+}
+
+
+
+
+
+
+
 
 
 // Arrowkeys use
