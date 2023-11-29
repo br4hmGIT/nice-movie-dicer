@@ -4,6 +4,7 @@ const input = document.getElementById('search');
 const dropdownList = document.getElementById('dropdown-list');
 const movieSuggest = document.getElementById('movieSuggest');
 const clearBtn = document.getElementById('clearBtn');
+const diceBtn = document.getElementById('diceBtn');
 const filmEle = document.getElementById('movieWrapper');
 
 let filmTitle = '';
@@ -122,16 +123,36 @@ async function pushMovie(title, year, img, id) {
 }
 
 // CLEAR-ALL BUTTON
+
 clearBtn.addEventListener('click', async function () {
     setTimeout(function () {
         filmEle.innerHTML = '';
     }, 200);
 });
 
+// DICE FUNCTION
+
+function getRandomMovieElement() {
+    const movieElements = document.querySelectorAll('.movie');
+    
+    if (movieElements.length > 0) {
+        const randomIndex = Math.floor(Math.random() * movieElements.length);
+        const randomMovieElement = movieElements[randomIndex];
+    
+        filmEle.innerHTML = '';
+        filmEle.innerHTML = `<div>${randomMovieElement.outerHTML}</div>`;
+        console.log('Zufälliges Movie-Element:', randomMovieElement.querySelector('.movie-title').textContent);
+    } else {
+        console.log('Keine Movie-Elemente vorhanden.');
+    }
+}
+
+diceBtn.addEventListener('click', function () {
+    getRandomMovieElement();
+});
+
+
 // Arrowkeys use
-
-
-
 
 
 let selectedIndex = -1;
