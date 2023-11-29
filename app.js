@@ -146,31 +146,50 @@ async function findMovie() {
 
     async function pushMovie(title, year, img, id) {
         const previousContent = filmEle.innerHTML;
-    
+        
+        
         const movieElement = document.createElement('div');
+        
         movieElement.classList.add('movie');
         
+
         movieElement.id = id;
         movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
             <img id="moviePic" src="${img}" alt="">
             <div class="movie-title">${title}</div>
             <div class="movie-year">(${year})</div>`;
-    
-        filmEle.innerHTML = previousContent + movieElement.outerHTML;
-    
-        document.addEventListener('click', function (event) {
+        
+         movieElement.classList.add('fadeInAnimation');
+
+         filmEle.insertAdjacentHTML('beforeend', movieElement.outerHTML);
+        
+        setTimeout(function() {
+            movieElement.classList.remove('fadeInAnimation');
+        }, 200);    
+        
+        
             
-            const clearSingleMovieBtn = event.target.closest('.remove-movie-button');
-            if (clearSingleMovieBtn) {
-                const parentElement = clearSingleMovieBtn.closest('.movie');
-                parentElement.classList.add('fadeOutAnimation');
-                setTimeout(function() {
-                    if (parentElement) {
-                        parentElement.remove();
-                    }
-                }, 200);
-               
-            }
+    function removeClick(event) {
+        const clearSingleMovieBtn = event.target.closest('.remove-movie-button');
+        if (clearSingleMovieBtn) {
+            const parentElement = clearSingleMovieBtn.closest('.movie');
+            
+            parentElement.classList.add('fadeOutAnimation');
+            setTimeout(function() {
+                if (parentElement) {
+                    parentElement.remove();
+                }
+            }, 200);
+           
+        }
+    }
+        
+    document.addEventListener('dblclick', function (event) {
+        handleButtonClick(event);
+    });
+
+        document.addEventListener('click', function (event) {
+           removeClick(event);
         });
     }
 
@@ -179,7 +198,12 @@ async function findMovie() {
 // CLEAR-ALL BUTTON
 
 clearBtn.addEventListener('click', async function () {
-    filmEle.innerHTML = '';
+    
+    setTimeout(function() {
+        filmEle.innerHTML = '';
+    }, 200);
+    
+   
 });
 
 
