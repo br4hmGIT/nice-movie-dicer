@@ -227,13 +227,13 @@ body {
     gap: 0.5rem;
     min-width: 10%;
     max-width: 200px;
-    background-color: #2715156b;
-    transition: filter 0.2s ease-in-out;
+    background-color: #3333333c;
+    transition: filter 0.1s ease-in-out;
 }
 
 .movie:hover {
     cursor: pointer;
-    filter: drop-shadow(0 0 1px rgb(255, 255, 255));
+    filter: brightness(105%);
 }
 
 .fadeInAnimation {
