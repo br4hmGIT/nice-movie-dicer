@@ -169,6 +169,8 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         diceElement.classList.add('dice-element');
         backdropElement.appendChild(diceElement);
 
+        const searchForStream = `https://www.google.de/search?q=${filmTitle}+${filmYear}+stream&sca_esv=586607062&sxsrf=AM9HkKlPY0c-orwUkYdBq34xkj4b8FXqOA%3A1701355108688&source=hp&ei=ZJ5oZYaZKKuVxc8PoaC2sAg&iflsig=AO6bgOgAAAAAZWisdPK5StbuXiRaxuJLGt6ypkC8JX3u&ved=0ahUKEwiG243X-euCAxWrSvEDHSGQDYYQ4dUDCAw&uact=5&oq=saw+2+%282005%29+stream&gs_lp=Egdnd3Mtd2l6IhNzYXcgMiAoMjAwNSkgc3RyZWFtSNuhAlCyKFi4nAJwBngAkAEAmAGZAaAB3Q6qAQQyMS4zuAEDyAEA-AEBqAIKwgIHECMY6gIYJ8ICBBAjGCfCAgoQIxiABBiKBRgnwgILEAAYgAQYsQMYgwHCAgoQABiABBiKBRhDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgoQLhiABBiKBRhDwgIQEC4YgAQYigUYxwEY0QMYQ8ICFhAuGIAEGIoFGLEDGIMBGMcBGNEDGEPCAgsQLhiABBixAxiDAcICCxAuGIMBGLEDGIAEwgIIEC4YsQMYgATCAgsQLhiABBjHARivAcICBRAAGIAEwgIFEC4YgATCAggQLhjUAhiABMICCBAuGIAEGMsBwgIIEAAYgAQYywHCAgYQABgWGB7CAggQABgWGB4YD8ICCBAhGBYYHhgd&sclient=gws-wiz`
+
         // Füge das Hintergrundelement zum Body hinzu
         document.body.appendChild(backdropElement);
         diceElement.innerHTML = `
@@ -177,6 +179,7 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
         <div class="movie-title-dice">${filmTitle}</div>
         </div>
+        <a href="${searchForStream}" target="_blank">search for stream</a>
         `;
 
         // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
