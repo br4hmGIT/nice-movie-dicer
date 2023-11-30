@@ -140,12 +140,25 @@ async function pushMovie(title, year, img, id) {
         });
 }
 
+
+
+// ----------- POP UP FÜR DETAILIERTE INFORMATION ----------
+
+function detailedInformation(event) {
+    const movieDetails = event.target.closest('.movie');
+    if (movieDetails) {
+        addBackdrop();
+        }
+    }
+
+
+    filmEle.addEventListener('click', detailedInformation);
 // CLEAR-ALL BUTTON
 
 clearBtn.addEventListener('click', async function () {
-    setTimeout(function () {
+    
         filmEle.innerHTML = '';
-    }, 200);
+    
 });
 
 // DICE FUNCTION
@@ -171,6 +184,8 @@ function getRandomMovieElement() {
         console.log('Keine Movie-Elemente vorhanden.');
     }
 }
+
+// Dicer klick
 
 diceBtn.addEventListener('click', function () {
     getRandomMovieElement();
@@ -295,6 +310,7 @@ dropdownList.addEventListener('mouseover', function (event) {
         dropdownList.querySelectorAll('li').forEach(item => item.classList.remove('active-per-arrow'));
     }
 });
+
 
 
 //  input.addEventListener('keypress', async function (e) {
