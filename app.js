@@ -138,9 +138,7 @@ function getRandomMovieElement() {
     if (movieElements.length > 0) {
         const randomIndex = Math.floor(Math.random() * movieElements.length);
         const randomMovieElement = movieElements[randomIndex];
-    
-        
-        filmEle.innerHTML = `<div>${randomMovieElement.outerHTML}</div>`;
+        // filmEle.innerHTML = `<div>${randomMovieElement.outerHTML}</div>`;
         console.log('Zufälliges Movie-Element:', randomMovieElement.querySelector('.movie-title').textContent);
     } else {
         console.log('Keine Movie-Elemente vorhanden.');
@@ -158,7 +156,13 @@ diceBtn.addEventListener('click', function () {
 function addBackdrop() {
     // Erstelle ein neues div-Element für den Hintergrund
     const backdropElement = document.createElement('div');
+    
     backdropElement.classList.add('backdrop'); // Füge eine Klasse hinzu, um das Styling zu definieren
+    const diceElement = document.createElement('div');
+    diceElement.classList.add('dice-element');
+    backdropElement.appendChild(diceElement);
+
+
 
     // Füge das Hintergrundelement zum Body hinzu
     document.body.appendChild(backdropElement);
