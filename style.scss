@@ -228,6 +228,12 @@ body {
     min-width: 10%;
     max-width: 200px;
     background-color: #2715156b;
+    transition: filter 0.2s ease-in-out;
+}
+
+.movie:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 1px rgb(255, 255, 255));
 }
 
 .fadeInAnimation {
@@ -315,8 +321,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    width: 30vw;
+    position: fixed;
     bottom: 5px;
+    padding: 0 0 5px 5px;
 }
 
 // Backrop
@@ -385,6 +393,11 @@ footer {
     width: 200px;
     filter: contrast(1.5);
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.7));
+    transition: all 0.2s ease-in-out;
+}
+
+#moviePicResult:hover {
+    transform: scale(102%);
 }
 
 .search-stream-wrapper {
