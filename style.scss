@@ -336,11 +336,25 @@ footer {
 }
 
 .dice-element {
-    width: 50%;
-    height: 50%;
-    margin-top: 5rem;
-    padding: 5rem;
+    width: 100%;
+    height: 85vh;
+    margin-top: 3rem;
+    padding: 2rem;
     background-color: #000000c5;
+
+    animation: resultPopUp 0.2s ease-in-out;
+}
+
+@keyframes resultPopUp {
+    from {
+        filter: blur(10px);
+        transform: translateX(50px);
+    }
+
+    to {
+        filter: blur(0px);
+        transform: translateX(0px);
+    }
 }
 
 .your-random-movie {
@@ -356,14 +370,40 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    background-color: #000000c5;
+    // background-color: #000000c5;
     padding: 3rem;
+    margin-bottom: 2rem;
 }
 
 .movie-year-dice,
 .movie-title-dice {
     font-size: 3rem;
+    font-weight: bold;
 }
 
 #moviePicResult {
+    width: 200px;
+    filter: contrast(1.5);
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.7));
+}
+
+.search-stream-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.search-stream-wrapper button {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: whitesmoke;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-stream-wrapper button:hover {
+    background-color: whitesmoke;
+    border: 1px solid white;
+    color: #333;
+    cursor: pointer;
 }

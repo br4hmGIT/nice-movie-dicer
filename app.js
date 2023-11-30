@@ -174,13 +174,17 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         // Füge das Hintergrundelement zum Body hinzu
         document.body.appendChild(backdropElement);
         diceElement.innerHTML = `
-        <div class="your-random-movie">Congratulations! Your movie is</div>
-        <div class="random-movie-wrapper">
-        <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
+        <div class="your-random-movie">Congratulations! Your movie is:</div>
+            <div class="random-movie-wrapper">
+        <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}">
         <div class="movie-title-dice">${filmTitle}</div>
         </div>
-        <a href="${searchForStream}" target="_blank">search for stream</a>
+        <div class="search-stream-wrapper">
+        <a href="${searchForStream}" target="_blank"><button>search for stream</button></a>
+    </div>
         `;
+
+        
 
         // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
 
