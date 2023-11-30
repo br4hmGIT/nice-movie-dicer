@@ -138,8 +138,17 @@ function getRandomMovieElement() {
     if (movieElements.length > 0) {
         const randomIndex = Math.floor(Math.random() * movieElements.length);
         const randomMovieElement = movieElements[randomIndex];
-        
-        console.log('Zufälliges Movie-Element:', randomMovieElement.querySelector('.movie-title').textContent);
+
+        const filmTitle = randomMovieElement.querySelector('.movie-title').textContent;
+        const filmYear = randomMovieElement.querySelector('.movie-year').textContent;
+        const filmImg = randomMovieElement.querySelector('img').src;
+
+        console.log('Zufälliges Movie-Element:', filmTitle, filmYear, filmImg);
+
+        // Rufe die Funktion auf und übergebe die Daten
+        addBackdrop(filmTitle, filmYear, filmImg).then(() => {
+            console.log('Backdrop hinzugefügt.');
+        });
     } else {
         console.log('Keine Movie-Elemente vorhanden.');
     }
@@ -147,45 +156,45 @@ function getRandomMovieElement() {
 
 diceBtn.addEventListener('click', function () {
     getRandomMovieElement();
-    addBackdrop();
 });
 
+// Backdrop mit Daten-Parametern und Promise
+function addBackdrop(filmTitle, filmYear, filmImg) {
+    return new Promise((resolve) => {
+        // Erstelle ein neues div-Element für den Hintergrund
+        const backdropElement = document.createElement('div');
 
-// Backdrop
+        backdropElement.classList.add('backdrop'); // Füge eine Klasse hinzu, um das Styling zu definieren
+        const diceElement = document.createElement('div');
+        diceElement.classList.add('dice-element');
+        backdropElement.appendChild(diceElement);
 
-function addBackdrop() {
-    // Erstelle ein neues div-Element für den Hintergrund
-    const backdropElement = document.createElement('div');
-    
-    backdropElement.classList.add('backdrop'); // Füge eine Klasse hinzu, um das Styling zu definieren
-    const diceElement = document.createElement('div');
-    diceElement.classList.add('dice-element');
-    backdropElement.appendChild(diceElement);
+        // Füge das Hintergrundelement zum Body hinzu
+        document.body.appendChild(backdropElement);
+        diceElement.innerHTML = `
+        <div class="your-random-movie">Congratulations! Your movie is</div>
+        <div class="random-movie-wrapper">
+        <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
+        <div class="movie-title-dice">${filmTitle}</div>
+        </div>
+        `;
 
+        // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
 
-    
-    // Füge das Hintergrundelement zum Body hinzu
-    // NIMMT IMMER DAS LETZTE AUS DER LI
-    document.body.appendChild(backdropElement);
-    diceElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
-    <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
-    <div class="movie-title">${filmTitle}</div>
-    <div class="movie-year">(${filmYear })</div>`;
-    // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
+        // Hier kannst du zusätzliche Aktionen ausführen, wenn das Hintergrundelement hinzugefügt wird
+        console.log('Backdrop wurde hinzugefügt.');
 
-
-    // Hier kannst du zusätzliche Aktionen ausführen, wenn das Hintergrundelement hinzugefügt wird
-    console.log('Backdrop wurde hinzugefügt.');
-
-    // Backdrop entfernen
-    backdropElement.addEventListener('click', function(){
-        backdropElement.remove();
-        filmTitle = '';
-        filmYear = '';
-        filmImg = '';
-
+        // Backdrop entfernen
+        backdropElement.addEventListener('click', function () {
+            backdropElement.remove();
+            filmTitle = '';
+            filmYear = '';
+            filmImg = '';
+            resolve(); // Löse das Promise, wenn die Operation abgeschlossen ist
+        });
     });
 }
+
 
 
 
