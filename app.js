@@ -176,12 +176,12 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         diceElement.innerHTML = `
         <div class="your-random-movie">Congratulations! Your movie is:</div>
             <div class="random-movie-wrapper">
-        <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}">
+            <a href="${searchForStream}" target="_blank"><img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}"></a>
         <div class="movie-title-dice">${filmTitle}</div>
         </div>
         <div class="search-stream-wrapper">
         <a href="${searchForStream}" target="_blank"><button>search for stream</button></a>
-    </div>
+        </div>
         `;
 
         
@@ -192,22 +192,20 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         console.log('Backdrop wurde hinzugefügt.');
 
         // Backdrop entfernen
-        backdropElement.addEventListener('click', function () {
-            backdropElement.remove();
-            filmTitle = '';
-            filmYear = '';
-            filmImg = '';
-            resolve(); // Löse das Promise, wenn die Operation abgeschlossen ist
+        backdropElement.addEventListener('click', function (event) {
+            const isButtonClick = event.target.tagName === 'BUTTON' || event.target.closest('button');
+            const isNameClick = event.target.closest('.movie-title-dice');
+            const isImgClick = event.target.closest('#moviePicResult')
+            if (!isImgClick && !isNameClick && !isButtonClick && event.target !== diceElement && event.target.innerHTML !== diceElement.innerHTML) {
+                backdropElement.remove();
+                filmTitle = '';
+                filmYear = '';
+                filmImg = '';
+                resolve(); // Löse das Promise, wenn die Operation abgeschlossen ist
+            } 
         });
     });
 }
-
-
-
-
-
-
-
 
 
 
@@ -270,6 +268,15 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+dropdownList.addEventListener('mouseover', function (event) {
+    const hoveredItem = event.target.closest('li');
+    if (hoveredItem) {
+        // Zurücksetzen der selectedIndex, wenn die Maus über einer li schwebt
+        selectedIndex = -1;
+        // Entfernen der Klasse für aktive Auswahl
+        dropdownList.querySelectorAll('li').forEach(item => item.classList.remove('active-per-arrow'));
+    }
+});
 
 
 //  input.addEventListener('keypress', async function (e) {
