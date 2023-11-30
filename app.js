@@ -138,7 +138,7 @@ function getRandomMovieElement() {
     if (movieElements.length > 0) {
         const randomIndex = Math.floor(Math.random() * movieElements.length);
         const randomMovieElement = movieElements[randomIndex];
-        // filmEle.innerHTML = `<div>${randomMovieElement.outerHTML}</div>`;
+        
         console.log('Zufälliges Movie-Element:', randomMovieElement.querySelector('.movie-title').textContent);
     } else {
         console.log('Keine Movie-Elemente vorhanden.');
@@ -163,10 +163,14 @@ function addBackdrop() {
     backdropElement.appendChild(diceElement);
 
 
-
+    
     // Füge das Hintergrundelement zum Body hinzu
+    // NIMMT IMMER DAS LETZTE AUS DER LI
     document.body.appendChild(backdropElement);
-
+    diceElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
+    <img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
+    <div class="movie-title">${filmTitle}</div>
+    <div class="movie-year">(${filmYear })</div>`;
     // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
 
 
@@ -176,6 +180,10 @@ function addBackdrop() {
     // Backdrop entfernen
     backdropElement.addEventListener('click', function(){
         backdropElement.remove();
+        filmTitle = '';
+        filmYear = '';
+        filmImg = '';
+
     });
 }
 
