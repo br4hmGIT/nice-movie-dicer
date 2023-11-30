@@ -80,25 +80,43 @@ document.addEventListener('click', function (event) {
 });
 
 async function pushMovie(title, year, img, id) {
-    const previousContent = filmEle.innerHTML;
+    const existingMovie = document.getElementById(id);
 
-    const movieElement = document.createElement('div');
+    // Überprüfe, ob das Element bereits vorhanden ist
+    if (!existingMovie) {
+        const movieElement = document.createElement('div');
 
-    movieElement.classList.add('movie');
+        movieElement.classList.add('movie');
+        movieElement.id = id;
+        movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
+            <img id="moviePic" src="${img}" alt="">
+            <div class="movie-title">${title}</div>
+            <div class="movie-year">(${year})</div>`;
 
-    movieElement.id = id;
-    movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
-        <img id="moviePic" src="${img}" alt="">
-        <div class="movie-title">${title}</div>
-        <div class="movie-year">(${year})</div>`;
+        // Füge das Element mit Animation hinzu
+        movieElement.classList.add('fadeInAnimation');
+        filmEle.insertAdjacentElement('beforeend', movieElement);
 
-    movieElement.classList.add('fadeInAnimation');
+        // Entferne die Animation nach einer gewissen Zeit
+        setTimeout(function () {
+            movieElement.classList.remove('fadeInAnimation');
+        }, 200);
 
-    filmEle.insertAdjacentHTML('beforeend', movieElement.outerHTML);
+        // Füge einen Event-Listener für das Entfernen hinzu
+        movieElement.querySelector('.remove-movie-button').addEventListener('click', function () {
+            movieElement.classList.add('fadeOutAnimation');
+            setTimeout(function () {
+                movieElement.remove();
+            }, 200);
+        });
+    } else {
+        console.log('Element bereits vorhanden.');
+    }
 
-    setTimeout(function () {
-        movieElement.classList.remove('fadeInAnimation');
-    }, 200);
+   
+
+
+    // ------ Delete movie from List ------
 
     function removeClick(event) {
         const clearSingleMovieBtn = event.target.closest('.remove-movie-button');
@@ -108,18 +126,18 @@ async function pushMovie(title, year, img, id) {
             setTimeout(function () {
                 if (parentElement) {
                     parentElement.remove();
-                }
-            }, 200);
+                    }
+                }, 200);
+            }
         }
-    }
 
-    document.addEventListener('dblclick', function (event) {
-        removeClick(event);
-    });
+        document.addEventListener('dblclick', function (event) {
+            removeClick(event);
+        });
 
-    document.addEventListener('click', function (event) {
-        removeClick(event);
-    });
+        document.addEventListener('click', function (event) {
+            removeClick(event);
+        });
 }
 
 // CLEAR-ALL BUTTON
