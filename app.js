@@ -142,17 +142,18 @@ async function pushMovie(title, year, img, id) {
 
 
 
-// ----------- POP UP FÜR DETAILIERTE INFORMATION ----------
+// -----------POP UP FÜR DETAILIERTE INFORMATION ----------
 
-function detailedInformation(event) {
-    const movieDetails = event.target.closest('.movie');
-    if (movieDetails) {
-        addBackdrop();
-        }
-    }
+// function detailedInformation(event) {
+//     const movieDetails = event.target.closest('.movie');
+//     if (movieDetails && movieDetails !== filmEle) {
+//         addBackdrop();
+//         }
+//     }
+//     filmEle.addEventListener('click', detailedInformation);
 
 
-    filmEle.addEventListener('click', detailedInformation);
+
 // CLEAR-ALL BUTTON
 
 clearBtn.addEventListener('click', async function () {
@@ -217,12 +218,6 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         </div>
         `;
 
-        
-
-        // Beispiel für das Styling des Hintergrundelements (ersetze dies durch dein eigenes Styling)
-
-        // Hier kannst du zusätzliche Aktionen ausführen, wenn das Hintergrundelement hinzugefügt wird
-        console.log('Backdrop wurde hinzugefügt.');
 
         // Backdrop entfernen
         backdropElement.addEventListener('click', function (event) {
