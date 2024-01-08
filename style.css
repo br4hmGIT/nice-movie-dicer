@@ -227,7 +227,7 @@ body {
 }
 
 .movie:hover {
-  cursor: pointer;
+  cursor: auto;
   filter: brightness(105%);
 }
 
