@@ -53,15 +53,18 @@ body {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
+  padding-top: 1rem;
   position: absolute;
   top: 1rem;
-  left: 2rem;
+  margin-left: 3rem;
 }
 
 .instruction {
   font-size: 1.4rem;
   margin-bottom: 4rem;
-  width: 20vw;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  width: 30vw;
 }
 
 .input-wrapper {
