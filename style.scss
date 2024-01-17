@@ -7,7 +7,6 @@
 
 body {
     background: rgb(7, 7, 7);
-
     background-image: url(./backgroundJCr.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,7 +65,7 @@ body {
     margin-bottom: 4rem;
     margin-left: 3rem;
     margin-top: 1rem;
-    width: 3+0vw;
+    width: 30vw;
 }
 
 .input-wrapper {
@@ -103,6 +102,22 @@ body {
     background-position: left bottom;
 
     color: rgb(233, 231, 231);
+}
+
+#search:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+#search:focus::-moz-placeholder {
+    opacity: 0;
+}
+
+#search:focus:-ms-input-placeholder {
+    opacity: 0;
+}
+
+#search:focus::-ms-input-placeholder {
+    opacity: 0;
 }
 
 #search:focus::placeholder {
@@ -232,16 +247,34 @@ body {
     min-width: 10%;
     max-width: 200px;
     background-color: #3333333c;
+    transition: -webkit-filter 0.1s ease-in-out;
     transition: filter 0.1s ease-in-out;
+    transition: filter 0.1s ease-in-out, -webkit-filter 0.1s ease-in-out;
+    transition:
+        filter 0.1s ease-in-out,
+        -webkit-filter 0.1s ease-in-out;
 }
 
 .movie:hover {
     cursor: auto;
+    -webkit-filter: brightness(105%);
     filter: brightness(105%);
 }
 
 .fadeInAnimation {
+    -webkit-animation: fadeInAnimation 0.2s ease-in-out;
     animation: fadeInAnimation 0.2s ease-in-out;
+}
+
+@-webkit-keyframes fadeInAnimation {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInAnimation {
@@ -256,7 +289,19 @@ body {
 }
 
 .fadeOutAnimation {
+    -webkit-animation: fadeOutAnimation 0.2s ease-in-out;
     animation: fadeOutAnimation 0.2s ease-in-out;
+}
+
+@-webkit-keyframes fadeOutAnimation {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.5);
+        opacity: 0.1;
+    }
 }
 
 @keyframes fadeOutAnimation {
@@ -271,6 +316,7 @@ body {
 }
 
 #moviePic {
+    -o-object-fit: cover;
     object-fit: cover;
     min-width: 200px;
     max-width: 200px;
@@ -285,7 +331,21 @@ body {
 }
 
 .alreadyAdded {
+    -webkit-animation: alreadyAdded 0.3s ease-in-out;
     animation: alreadyAdded 0.3s ease-in-out;
+}
+
+@-webkit-keyframes alreadyAdded {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 @keyframes alreadyAdded {
@@ -340,6 +400,7 @@ footer {
     width: 100%;
     height: 100%;
     // background-color: rgba($color: #000000, $alpha: 0.9);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     display: flex;
     // align-items: center;
@@ -354,16 +415,34 @@ footer {
     padding: 2rem;
     background-color: #000000c5;
 
+    -webkit-animation: resultPopUp 0.2s ease-in-out;
+
     animation: resultPopUp 0.2s ease-in-out;
 }
 
-@keyframes resultPopUp {
+@-webkit-keyframes resultPopUp {
     from {
+        -webkit-filter: blur(10px);
         filter: blur(10px);
         transform: translateX(50px);
     }
 
     to {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        transform: translateX(0px);
+    }
+}
+
+@keyframes resultPopUp {
+    from {
+        -webkit-filter: blur(10px);
+        filter: blur(10px);
+        transform: translateX(50px);
+    }
+
+    to {
+        -webkit-filter: blur(0px);
         filter: blur(0px);
         transform: translateX(0px);
     }
@@ -395,7 +474,9 @@ footer {
 
 #moviePicResult {
     width: 200px;
+    -webkit-filter: contrast(1.5);
     filter: contrast(1.5);
+    -webkit-filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.7));
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.7));
     transition: all 0.2s ease-in-out;
 }
