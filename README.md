@@ -13,6 +13,7 @@ Technologies used:
 - JavaScript
 - HTML
 - SCSS
+- GitHub
 
 API:
 
