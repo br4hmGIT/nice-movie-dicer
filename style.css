@@ -17,24 +17,21 @@ body {
 .dev {
   width: 100%;
   text-align: end;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-
 .dev a {
   text-decoration: none;
   border-bottom: 1px solid rgba(245, 245, 245, 0.371);
   border-left: 1px solid rgba(245, 245, 245, 0.371);
   padding-left: 0.2rem;
   color: rgba(245, 245, 245, 0.373);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-
 .dev:hover,
 .dev a:hover {
   text-align: end;
   color: rgba(245, 245, 245, 0.71);
 }
-
 .dev img {
   padding-top: 10px;
   max-height: 30px;
@@ -76,11 +73,11 @@ body {
   padding: 0 5rem 0 2.5rem;
 }
 
-#search {
+.search {
   border-radius: 5px;
   font-size: 1.2em;
   width: 10rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 40%;
   min-width: 200px;
   padding: 1rem;
@@ -90,9 +87,7 @@ body {
   background-size: 60% 260%;
   background-position: top left;
 }
-
-#search:focus,
-#search:active {
+.search:focus, .search:active {
   font-size: 1.2em;
   width: 40%;
   border: none;
@@ -100,12 +95,7 @@ body {
   background-position: left bottom;
   color: rgb(233, 231, 231);
 }
-
-#search:focus::-moz-placeholder {
-  opacity: 0;
-}
-
-#search:focus::placeholder {
+.search:focus::-webkit-input-placeholder, .search:focus::-moz-placeholder, .search:focus:-ms-input-placeholder, .search:focus::-ms-input-placeholder, .search:focus::placeholder, .search:active::-webkit-input-placeholder, .search:active::-moz-placeholder, .search:active:-ms-input-placeholder, .search:active::-ms-input-placeholder, .search:active::placeholder {
   opacity: 0;
 }
 
@@ -115,14 +105,13 @@ body {
   gap: 2rem;
 }
 
-#dropdown-list {
+.dropdown-list {
   display: block;
   min-width: 39.5%;
   max-width: 39.5%;
   margin-top: -0.5px;
 }
-
-#dropdown-list li {
+.dropdown-list li {
   min-width: 20%;
   display: flex;
   align-items: center;
@@ -133,14 +122,12 @@ body {
   font-size: 1.4rem;
   background-color: rgba(51, 51, 51, 0.2352941176);
 }
-
-#dropdown-list li:hover {
+.dropdown-list li:hover {
   background-color: #f0f0f0;
   color: #333;
 }
-
-#dropdown-list li img,
-#dropdown-list li div {
+.dropdown-list li img,
+.dropdown-list li div {
   position: relative;
   z-index: 0;
 }
@@ -166,16 +153,18 @@ body {
   color: #333;
   width: 12vw;
   min-width: 220px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   background: linear-gradient(to bottom, #333 60%, rgba(233, 231, 231, 0.855) 50%);
   background-size: 60% 260%;
   background-position: bottom right;
 }
-
 .clear-btn:hover {
   background-position: right top;
   transform: scale(0.97);
   color: rgb(233, 231, 231);
+}
+.clear-btn:active {
+  transform: scale(0.8);
 }
 
 .randomize-btn {
@@ -189,22 +178,19 @@ body {
   border: none;
   width: 15vw;
   border-radius: 25px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   background: linear-gradient(to right, #333 60%, rgba(215, 137, 11, 0.843) 50%);
   background-size: 250% 260%;
   background-position: right top;
   position: absolute;
   right: 2rem;
 }
-
 .randomize-btn:hover {
   background-position: top left;
   transform: scale(0.97);
   color: rgb(233, 231, 231);
   border-radius: 25px;
 }
-
-.clear-btn:active,
 .randomize-btn:active {
   transform: scale(0.8);
 }
@@ -228,7 +214,6 @@ body {
   background-color: rgba(51, 51, 51, 0.2352941176);
   transition: filter 0.1s ease-in-out;
 }
-
 .movie:hover {
   cursor: auto;
   filter: brightness(105%);
@@ -260,7 +245,7 @@ body {
     opacity: 0.1;
   }
 }
-#moviePic {
+.movie-pic {
   -o-object-fit: cover;
   object-fit: cover;
   min-width: 200px;
@@ -276,7 +261,7 @@ body {
 }
 
 .alreadyAdded {
-  animation: alreadyAdded 0.3s ease-in-out;
+  animation: alreadyAdded 0.2s ease-in-out;
 }
 @keyframes alreadyAdded {
   0% {
@@ -301,7 +286,6 @@ body {
   opacity: 0.5;
   transition: all 0.2s ease-in;
 }
-
 .remove-movie-button:hover {
   background-color: black;
   color: white;
@@ -373,14 +357,13 @@ footer {
   font-weight: bold;
 }
 
-#moviePicResult {
+.movie-pic-result {
   width: 200px;
   filter: contrast(1.5);
   filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.7));
   transition: all 0.2s ease-in-out;
 }
-
-#moviePicResult:hover {
+.movie-pic-result:hover {
   transform: scale(102%);
 }
 
@@ -388,7 +371,6 @@ footer {
   display: flex;
   justify-content: center;
 }
-
 .search-stream-wrapper button {
   background-color: transparent;
   border: 1px solid white;
@@ -397,7 +379,6 @@ footer {
   color: whitesmoke;
   transition: all 0.2s ease-in-out;
 }
-
 .search-stream-wrapper button:hover {
   background-color: whitesmoke;
   border: 1px solid white;
