@@ -96,7 +96,7 @@ async function pushMovie(title, year, img, id) {
     movieElement.classList.add("movie");
     movieElement.id = id;
     movieElement.innerHTML = `<div class="remove-movie-button-wrapper"><button class="remove-movie-button">&#10006;</button></div>
-            <img id="moviePic" src="${img}" alt="">
+            <img id="moviePic" class="movie-pic" src="${img}" alt="">
             <div class="movie-title">${title}</div>
             <div class="movie-year">(${year})</div>`;
 
@@ -195,6 +195,7 @@ diceBtn.addEventListener("click", function () {
 });
 
 // Backdrop mit Daten-Parametern und Promise
+
 function addBackdrop(filmTitle, filmYear, filmImg) {
   return new Promise((resolve) => {
     // Erstelle ein neues div-Element für den Hintergrund
@@ -212,7 +213,7 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
     diceElement.innerHTML = `
         <div class="your-random-movie">Congratulations! Your movie is:</div>
             <div class="random-movie-wrapper">
-            <a href="${searchForStream}" target="_blank"><img id="moviePicResult" src="https://image.tmdb.org/t/p/w200/${filmImg}"></a>
+            <a href="${searchForStream}" target="_blank"><img id="moviePicResult" class="movie-pic-result" src="https://image.tmdb.org/t/p/w200/${filmImg}"></a>
         <div class="movie-title-dice">${filmTitle}</div>
         </div>
         <div class="search-stream-wrapper">
@@ -299,7 +300,6 @@ document.addEventListener("keydown", function (event) {
         movieElementSingle.classList.remove("alreadyAdded");
       }, 500);
     }
-    // console.log('Ausgewählte Option:', selectedElement.textContent, clickedTitle, clickedYear, clickedImg, clickedID);
   }
 });
 
