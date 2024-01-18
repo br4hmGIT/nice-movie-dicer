@@ -11,7 +11,8 @@ let filmTitle = "";
 let filmYear = "";
 let filmImg = "";
 
-// API
+// +++ API +++
+
 const options = {
   method: "GET",
   headers: {
@@ -21,6 +22,8 @@ const options = {
   },
 };
 
+// find movie function
+
 let findMovieTitle, findMovieYear, findMovieImg, filmID;
 
 async function findMovie() {
@@ -28,14 +31,8 @@ async function findMovie() {
     const searchTerm = input.value;
     const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
     const response = await fetch(searchUrl, options);
-
-    console.log("Das ist meine Response: " + response);
-
     const result = await response.json();
     result.results.slice(0, 5);
-
-    console.log("Das Result: ");
-    console.log(result);
 
     dropdownList.innerHTML = "";
 
@@ -47,7 +44,7 @@ async function findMovie() {
       filmID = obj.id;
 
       const listItem = document.createElement("li");
-      listItem.classList.add("movieSuggest"); // Verwenden Sie eine Klasse statt einer ID
+      listItem.classList.add("movieSuggest");
       listItem.innerHTML = `<img style="max-height:100px;" src="https://image.tmdb.org/t/p/w200/${filmImg}" alt=""><div>${filmTitle}, ${filmYear}</div>
             <p id="movieID">${filmID}</p>`;
 
@@ -89,7 +86,7 @@ document.addEventListener("click", function (event) {
 async function pushMovie(title, year, img, id) {
   const existingMovie = document.getElementById(id);
 
-  // Überprüfe, ob das Element bereits vorhanden ist
+  // --- check if the element already existsKlicken, um Alternative zu verwenden ---
   if (!existingMovie) {
     const movieElement = document.createElement("div");
 
@@ -100,16 +97,16 @@ async function pushMovie(title, year, img, id) {
             <div class="movie-title">${title}</div>
             <div class="movie-year">(${year})</div>`;
 
-    // Füge das Element mit Animation hinzu
+    // --- add the element with animation ---
     movieElement.classList.add("fadeInAnimation");
     filmEle.insertAdjacentElement("beforeend", movieElement);
 
-    // Entferne die Animation nach einer gewissen Zeit
+    // --- remove the animation ---
     setTimeout(function () {
       movieElement.classList.remove("fadeInAnimation");
     }, 200);
 
-    // Füge einen Event-Listener für das Entfernen hinzu
+    // --- add an event listener for removing ---
     movieElement
       .querySelector(".remove-movie-button")
       .addEventListener("click", function () {
@@ -122,8 +119,7 @@ async function pushMovie(title, year, img, id) {
     console.log("Element bereits vorhanden.");
   }
 
-  // ------ Delete movie from List ------
-
+  // --- delete movie from List ----
   function removeClick(event) {
     const clearSingleMovieBtn = event.target.closest(".remove-movie-button");
     if (clearSingleMovieBtn) {
@@ -145,16 +141,6 @@ async function pushMovie(title, year, img, id) {
     removeClick(event);
   });
 }
-
-// -----------POP UP FÜR DETAILIERTE INFORMATION ----------
-
-// function detailedInformation(event) {
-//     const movieDetails = event.target.closest('.movie');
-//     if (movieDetails && movieDetails !== filmEle) {
-//         addBackdrop();
-//         }
-//     }
-//     filmEle.addEventListener('click', detailedInformation);
 
 // CLEAR-ALL BUTTON
 
@@ -179,7 +165,7 @@ function getRandomMovieElement() {
 
     console.log("Zufälliges Movie-Element:", filmTitle, filmYear, filmImg);
 
-    // Rufe die Funktion auf und übergebe die Daten
+    // --- call function and transfer data ---
     addBackdrop(filmTitle, filmYear, filmImg).then(() => {
       console.log("Backdrop hinzugefügt.");
     });
@@ -188,27 +174,25 @@ function getRandomMovieElement() {
   }
 }
 
-// Dicer klick
+// Dicer click
 
 diceBtn.addEventListener("click", function () {
   getRandomMovieElement();
 });
 
-// Backdrop mit Daten-Parametern und Promise
+// Backdrop with data parameters and Promise
 
 function addBackdrop(filmTitle, filmYear, filmImg) {
   return new Promise((resolve) => {
-    // Erstelle ein neues div-Element für den Hintergrund
     const backdropElement = document.createElement("div");
-
-    backdropElement.classList.add("backdrop"); // Füge eine Klasse hinzu, um das Styling zu definieren
+    backdropElement.classList.add("backdrop");
     const diceElement = document.createElement("div");
     diceElement.classList.add("dice-element");
     backdropElement.appendChild(diceElement);
 
     const searchForStream = `https://www.google.de/search?q=${filmTitle}+${filmYear}+stream&sca_esv=586607062&sxsrf=AM9HkKlPY0c-orwUkYdBq34xkj4b8FXqOA%3A1701355108688&source=hp&ei=ZJ5oZYaZKKuVxc8PoaC2sAg&iflsig=AO6bgOgAAAAAZWisdPK5StbuXiRaxuJLGt6ypkC8JX3u&ved=0ahUKEwiG243X-euCAxWrSvEDHSGQDYYQ4dUDCAw&uact=5&oq=saw+2+%282005%29+stream&gs_lp=Egdnd3Mtd2l6IhNzYXcgMiAoMjAwNSkgc3RyZWFtSNuhAlCyKFi4nAJwBngAkAEAmAGZAaAB3Q6qAQQyMS4zuAEDyAEA-AEBqAIKwgIHECMY6gIYJ8ICBBAjGCfCAgoQIxiABBiKBRgnwgILEAAYgAQYsQMYgwHCAgoQABiABBiKBRhDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgoQLhiABBiKBRhDwgIQEC4YgAQYigUYxwEY0QMYQ8ICFhAuGIAEGIoFGLEDGIMBGMcBGNEDGEPCAgsQLhiABBixAxiDAcICCxAuGIMBGLEDGIAEwgIIEC4YsQMYgATCAgsQLhiABBjHARivAcICBRAAGIAEwgIFEC4YgATCAggQLhjUAhiABMICCBAuGIAEGMsBwgIIEAAYgAQYywHCAgYQABgWGB7CAggQABgWGB4YD8ICCBAhGBYYHhgd&sclient=gws-wiz`;
 
-    // Füge das Hintergrundelement zum Body hinzu
+    // --- add the background element to the body ---
     document.body.appendChild(backdropElement);
     diceElement.innerHTML = `
         <div class="your-random-movie">Congratulations! Your movie is:</div>
@@ -221,7 +205,7 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         </div>
         `;
 
-    // Backdrop entfernen
+    // remove backdrop
     backdropElement.addEventListener("click", function (event) {
       const isButtonClick =
         event.target.tagName === "BUTTON" || event.target.closest("button");
@@ -238,7 +222,7 @@ function addBackdrop(filmTitle, filmYear, filmImg) {
         filmTitle = "";
         filmYear = "";
         filmImg = "";
-        resolve(); // Löse das Promise, wenn die Operation abgeschlossen ist
+        resolve();
       }
     });
   });
@@ -256,29 +240,26 @@ document.addEventListener("keydown", function (event) {
   const listItems = dropdownList.querySelectorAll("li");
 
   if (event.key === "ArrowDown") {
-    // Nach unten navigieren
     selectedIndex = (selectedIndex + 1) % listItems.length;
   } else if (event.key === "ArrowUp") {
-    // Nach oben navigieren
     selectedIndex = (selectedIndex - 1 + listItems.length) % listItems.length;
   } else {
-    return; // Wenn keine Pfeiltaste gedrückt wurde, beende die Funktion
+    return; // if no arrow using, end the function
   }
 
-  // Entferne zuvor hinzugefügte Klasse für aktive Auswahl
+  // remove previously added class for active selection
   listItems.forEach((item) => item.classList.remove("active-per-arrow"));
 
-  // Setze die Klasse für die ausgewählte Option
+  // set the class for the selected option
   listItems[selectedIndex].classList.add("active-per-arrow");
 });
 
-// Füge einen Event-Listener für das Klicken auf die ausgewählte Option hinzu
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter" && selectedIndex !== -1) {
-    event.preventDefault(); // Verhindere das Standardverhalten der Enter-Taste
+    event.preventDefault(); // prevent the default behavior of the Enter key
 
     const selectedElement = dropdownList.querySelectorAll("li")[selectedIndex];
-    // Setze die Werte für die ausgewählte Option
+    // set values for the selected option
     clickedTitle = selectedElement
       .querySelector("div")
       .textContent.split(",")[0]
@@ -290,7 +271,7 @@ document.addEventListener("keydown", function (event) {
     clickedImg = selectedElement.querySelector("img").src;
     clickedID = selectedElement.querySelector("p").textContent;
 
-    // Führe die gewünschte Aktion für die ausgewählte Option aus
+    // execute the desired action for the selected option
     if (!document.getElementById(clickedID)) {
       pushMovie(clickedTitle, clickedYear, clickedImg, clickedID);
     } else {
@@ -306,40 +287,11 @@ document.addEventListener("keydown", function (event) {
 dropdownList.addEventListener("mouseover", function (event) {
   const hoveredItem = event.target.closest("li");
   if (hoveredItem) {
-    // Zurücksetzen der selectedIndex, wenn die Maus über einer li schwebt
+    // reset the selectedIndex when the mouse hovers over a li
     selectedIndex = -1;
-    // Entfernen der Klasse für aktive Auswahl
+    // remove class for active selection
     dropdownList
       .querySelectorAll("li")
       .forEach((item) => item.classList.remove("active-per-arrow"));
   }
 });
-
-//  input.addEventListener('keypress', async function (e) {
-//     if (e.key === 'Enter') {
-//         const previousContent = filmEle.innerHTML;
-//         await getMovie();
-//         // console.log(filmTitle);
-//         if (filmTitle !== undefined) {
-//             console.log(filmTitle, filmYear, filmImg);
-//             filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
-//                                                    <img id="moviePic"src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
-//                                                      <div class="movie-title" id="movieTitle">${filmTitle}</div>
-//                                                     <div class="movie-year" id="movieYear">(${(filmYear)})</div>
-//                                                     </div>`;
-//         }
-//     }
-//  });
-
-//  inputButton.addEventListener('click', async function () {
-
-//         const previousContent = filmEle.innerHTML;
-//         await getMovie();
-//         console.log(filmTitle);
-//         filmEle.innerHTML = previousContent + `<div class="movie" id="movie">
-//                             <img id="moviePic"src="https://image.tmdb.org/t/p/w200/${filmImg}" alt="">
-//                             <div class="movie-title" id="movieTitle">${filmTitle}</div>
-//                             <div class="movie-year" id="movieYear">(${(filmYear)})</div>
-//                             </div>`;
-
-//  });
