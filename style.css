@@ -11,7 +11,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: whitesmoke;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .dev {
@@ -64,6 +64,10 @@ body {
   width: 30vw;
 }
 
+.instruction-mobile {
+  display: none;
+}
+
 .input-wrapper {
   display: flex;
   justify-content: start;
@@ -97,48 +101,6 @@ body {
 }
 .search:focus::-webkit-input-placeholder, .search:focus::-moz-placeholder, .search:focus:-ms-input-placeholder, .search:focus::-ms-input-placeholder, .search:focus::placeholder, .search:active::-webkit-input-placeholder, .search:active::-moz-placeholder, .search:active:-ms-input-placeholder, .search:active::-ms-input-placeholder, .search:active::placeholder {
   opacity: 0;
-}
-
-.dropdown-wrapper {
-  width: 100%;
-  display: flex;
-  gap: 2rem;
-}
-
-.dropdown-list {
-  display: block;
-  min-width: 39.5%;
-  max-width: 39.5%;
-  margin-top: -0.5px;
-}
-.dropdown-list li {
-  min-width: 20%;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  list-style-type: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.4rem;
-  background-color: rgba(51, 51, 51, 0.2352941176);
-}
-.dropdown-list li:hover {
-  background-color: #f0f0f0;
-  color: #333;
-}
-.dropdown-list li img,
-.dropdown-list li div {
-  position: relative;
-  z-index: 0;
-}
-
-.movieSuggest p {
-  display: none;
-}
-
-.active-per-arrow {
-  background-color: #f0f0f0 !important;
-  color: #333;
 }
 
 .clear-btn {
@@ -193,6 +155,48 @@ body {
 }
 .randomize-btn:active {
   transform: scale(0.8);
+}
+
+.dropdown-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.dropdown-list {
+  display: block;
+  min-width: 39.5%;
+  max-width: 39.5%;
+  margin-top: -0.5px;
+}
+.dropdown-list li {
+  min-width: 20%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  list-style-type: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  background-color: rgba(51, 51, 51, 0.2352941176);
+}
+.dropdown-list li:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+.dropdown-list li img,
+.dropdown-list li div {
+  position: relative;
+  z-index: 0;
+}
+
+.movieSuggest p {
+  display: none;
+}
+
+.active-per-arrow {
+  background-color: #f0f0f0 !important;
+  color: #333;
 }
 
 .movie-wrapper {
@@ -384,4 +388,164 @@ footer {
   border: 1px solid white;
   color: #333;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 320px) {
+  body {
+    background: rgb(7, 7, 7);
+    background-image: none;
+  }
+  .dev {
+    display: none;
+  }
+  .wrapper {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .headline {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    position: relative;
+    top: 0.5rem;
+    margin-left: 0;
+    width: 100%;
+    text-decoration: underline;
+  }
+  .instruction {
+    display: none;
+  }
+  .instruction-mobile {
+    display: flex;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    width: 90vw;
+    text-align: center;
+    justify-content: center;
+  }
+  .input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0rem;
+    padding: 0;
+    flex-direction: column;
+  }
+  .search {
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 90%;
+    transition: all 0.2s ease-in-out;
+    min-width: 200px;
+    padding: 1rem;
+    text-align: center;
+    border: none;
+    background: linear-gradient(to top, #333 60%, rgba(233, 231, 231, 0.855) 50%);
+    background-size: 60% 260%;
+    background-position: top left;
+  }
+  .search:focus, .search:active {
+    font-size: 1rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-position: left bottom;
+    color: rgb(233, 231, 231);
+  }
+  .search:focus::-webkit-input-placeholder, .search:focus::-moz-placeholder, .search:focus:-ms-input-placeholder, .search:focus::-ms-input-placeholder, .search:focus::placeholder, .search:active::-webkit-input-placeholder, .search:active::-moz-placeholder, .search:active:-ms-input-placeholder, .search:active::-ms-input-placeholder, .search:active::placeholder {
+    opacity: 0;
+  }
+  .btn-wrapper {
+    display: none;
+  }
+  .mobile-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 85vw;
+    padding: 0;
+  }
+  .clear-btn {
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #333;
+    width: 50vw;
+    min-width: 20vw;
+    transition: all 0.2s ease-in-out;
+    background: rgba(233, 231, 231, 0.855);
+  }
+  .clear-btn:hover {
+    color: rgba(0, 0, 0, 0.8705882353);
+  }
+  .clear-btn:active {
+    transform: scale(0.8);
+  }
+  .randomize-btn {
+    color: rgba(0, 0, 0, 0.8705882353);
+    margin-left: 1rem;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    width: 50vw;
+    min-width: 20vw;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    background: rgba(215, 137, 11, 0.843);
+    position: relative;
+    right: 0;
+  }
+  .randomize-btn:hover {
+    background-position: top left;
+    transform: scale(0.98);
+    color: rgba(0, 0, 0, 0.8705882353);
+    border-radius: 5px;
+  }
+  .randomize-btn:active {
+    transform: scale(0.8);
+  }
+  footer {
+    display: none;
+  }
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
 }/*# sourceMappingURL=style.css.map */
