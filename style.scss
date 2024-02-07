@@ -20,7 +20,7 @@ body {
 }
 
 .dev {
-    width: 100%;
+    width: 20vw;
     text-align: end;
     transition: $transition;
 
@@ -46,29 +46,32 @@ body {
 }
 
 .wrapper {
-    padding: 2rem;
+    padding: 0 3rem;
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 20vh;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header-instruction-wrapper {
+    display: flex;
     flex-direction: column;
-    height: 100vh;
+}
+
+.dev-wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .headline {
     font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-top: 1rem;
-    position: absolute;
-    top: 1rem;
-    margin-left: 3rem;
 }
 
 .instruction {
     font-size: 1.4rem;
-    margin-bottom: 4rem;
-    margin-left: 3rem;
-    margin-top: 1rem;
     width: 30vw;
 }
 
@@ -80,9 +83,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     gap: 1rem;
-    padding: 0 2rem 0 2.5rem;
+
+    padding: 0 3rem;
 }
 
 .mobile-btn-wrapper {
@@ -100,7 +103,7 @@ body {
     font-size: 1.2em;
     transition: $transition;
 
-    min-width: 33vw;
+    min-width: 35vw;
     padding: 1rem;
     text-align: center;
     border: none;
@@ -111,7 +114,7 @@ body {
     &:focus,
     &:active {
         font-size: 1.2em;
-        min-width: 33vw;
+        min-width: 35vw;
         border: none;
         outline: none;
         background-position: left bottom;
@@ -142,7 +145,7 @@ body {
     border: none;
     color: $accent-color;
     width: 12vw;
-    min-width: 220px;
+    min-width: 12vw;
     transition: $transition;
     background: linear-gradient(to bottom, #333 60%, rgb(233, 231, 231, 0.855) 50%);
     background-size: 60% 260%;
@@ -188,17 +191,22 @@ body {
 }
 
 .dropdown-wrapper {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    padding: 0 3rem;
+}
+
+ul {
+    -webkit-padding-start: 0px;
+    padding-inline-start: 0px;
 }
 
 .dropdown-list {
     display: flex;
     flex-direction: column;
-    min-width: 35.1vw;
-    max-width: 35.1vw;
+    min-width: 35vw;
+    max-width: 35vw;
     margin-top: -5px;
 
     li {
@@ -208,9 +216,12 @@ body {
         list-style-type: none;
         cursor: pointer;
         font-weight: bold;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         background-color: #3333333c;
 
+        &:nth-child(even) {
+            background-color: #3333333c;
+        }
         &:hover {
             background-color: #f0f0f0;
             color: $accent-color;
@@ -220,6 +231,7 @@ body {
         div {
             position: relative;
             z-index: 0;
+            padding-left: 0.5rem;
         }
     }
 }
@@ -383,12 +395,23 @@ body {
 
 footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     width: 30vw;
     position: fixed;
     bottom: 5px;
-    padding: 0 0 5px 5px;
+    padding: 0 0 5px 1rem;
+
+    a {
+        color: whitesmoke;
+        opacity: 0.5;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+        opacity: 0.8;
+    }
 }
 
 .backdrop {
@@ -406,8 +429,8 @@ footer {
 
 .dice-element {
     width: 100%;
-    height: 85vh;
-    margin-top: 3rem;
+    height: 100%;
+
     padding: 2rem;
     background-color: #000000c5;
     -webkit-animation: resultPopUp 0.2s ease-in-out;
@@ -523,36 +546,36 @@ footer {
 // -------------------------------------
 
 @media only screen and (max-width: 1366px) {
-    .headline {
-        margin-left: 2rem;
-    }
     .instruction {
+        width: 50vw;
         font-size: 1.2rem;
-        margin-bottom: 2rem;
-        margin-left: 2rem;
-        width: 60vw;
     }
 
-    .input-wrapper {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-        padding: 0 2rem 0 2rem;
-    }
+    // .input-wrapper {
+    //     display: flex;
+    //     justify-content: start;
+    //     align-items: center;
+    //     width: 100%;
+    //     gap: 1rem;
+    //     padding: 0 2rem 0 2rem;
+    // }
 
     .clear-btn {
         font-size: 1rem;
     }
 
+    .dropdown-wrapper {
+        gap: 5rem;
+    }
+
     footer {
         align-items: start;
         justify-content: start;
+        direction: row;
         width: 100vw;
-        left: 5px;
-        font-size: 0.8rem;
         padding: 0;
+        padding-left: 1.5rem;
+        font-size: 0.8rem;
     }
 }
 
