@@ -26,6 +26,9 @@
         Don't know which movie you want to watch? Just pick a few and have one
         handed out at random.
       </p>
+      <p class="instruction-mobile">
+        Pick a few movies and have one handed out at random.
+      </p>
 
       <!-- Inputs -->
       <div class="input-wrapper">
@@ -37,9 +40,16 @@
           autocomplete="off"
           oninput="findMovie()"
         />
-
-        <button class="clear-btn" id="clearBtn">clear list</button>
-        <button class="randomize-btn" id="diceBtn">dice!</button>
+        <div class="btn-wrapper">
+          <button class="clear-btn" id="clearBtn">clear list</button>
+          <button class="randomize-btn" id="diceBtn">dice!</button>
+        </div>
+        <div class="mobile-btn-wrapper">
+          <div class="btn-wrapper">
+            <button class="clear-btn" id="clearBtn">clear list</button>
+            <button class="randomize-btn" id="diceBtn">dice!</button>
+          </div>
+        </div>
       </div>
 
       <div class="dropdown-wrapper">
