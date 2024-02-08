@@ -474,6 +474,9 @@ footer a:hover {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    background-size: 100vh;
+  }
   .dev {
     width: 100%;
   }
