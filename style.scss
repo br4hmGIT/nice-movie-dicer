@@ -84,8 +84,11 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-
     padding: 0 3rem;
+}
+
+.input-wrapper-mobile {
+    display: none;
 }
 
 .mobile-btn-wrapper {
@@ -545,20 +548,14 @@ footer {
 
 // -------------------------------------
 
+// Small Laptops/Notebooks:
+// 1366 x 768 pixels
+
 @media only screen and (max-width: 1366px) {
     .instruction {
         width: 50vw;
         font-size: 1.2rem;
     }
-
-    // .input-wrapper {
-    //     display: flex;
-    //     justify-content: start;
-    //     align-items: center;
-    //     width: 100%;
-    //     gap: 1rem;
-    //     padding: 0 2rem 0 2rem;
-    // }
 
     .clear-btn {
         font-size: 1rem;
@@ -576,6 +573,127 @@ footer {
         padding: 0;
         padding-left: 1.5rem;
         font-size: 0.8rem;
+    }
+}
+
+// ______________________________
+
+// Tablets:
+// Portrait-View: 768 x 1024 pixels
+// Landscape-View: 1024 x 768 pixels
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .dev {
+        width: 100%;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+
+    .movie-pic {
+        -o-object-fit: cover;
+        object-fit: cover;
+        min-width: 160px;
+        max-width: 160px;
+        max-height: 240px;
+        min-height: 240px;
+    }
+
+    .dropdown-wrapper {
+        gap: 3rem;
+    }
+
+    .movie {
+        max-width: 160px;
+    }
+
+    .movie-title,
+    .movie-year,
+    .dropdown-list li {
+        font-weight: normal;
+    }
+
+    .random-movie-wrapper {
+        padding: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .dev {
+        width: 100%;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+
+    .input-wrapper {
+        padding: 0 2rem;
+        flex-direction: column;
+    }
+
+    .input-wrapper {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .input-wrapper-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .search {
+        min-width: 80vw;
+        &:focus,
+        &:active {
+            min-width: 80vw;
+        }
+    }
+
+    .clear-btn,
+    .randomize-btn {
+        width: 35vw;
+    }
+
+    .movie-pic {
+        -o-object-fit: cover;
+        object-fit: cover;
+        min-width: 160px;
+        max-width: 160px;
+        max-height: 240px;
+        min-height: 240px;
+    }
+
+    .dropdown-wrapper {
+        gap: 3rem;
+    }
+
+    .movie {
+        max-width: 160px;
+    }
+
+    .movie-title,
+    .movie-year,
+    .dropdown-list li {
+        font-weight: normal;
+    }
+
+    .random-movie-wrapper {
+        padding: 0;
+        margin-bottom: 0;
     }
 }
 
