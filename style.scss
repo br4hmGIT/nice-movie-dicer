@@ -639,16 +639,10 @@ footer {
 
     .input-wrapper {
         padding: 0 2rem;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .input-wrapper {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-    .input-wrapper-mobile {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -668,6 +662,23 @@ footer {
         width: 35vw;
     }
 
+    // ++++++ DA MÜSSEN WIR BEIM KLICKEN EINES FILMES DAS DROPDOWN VERSCHWINDEN LASSEN KÖNNEN! UND DAS DROPDOWN ALS OVERLAY ÜBER DIE FILME
+    .dropdown-wrapper {
+        align-items: center;
+        flex-direction: column;
+    }
+    .dropdown-list {
+        min-width: 80vw;
+        max-width: 80vw;
+        margin-top: 0px;
+        background-color: #3333339f;
+    }
+
+    .movie-wrapper {
+        width: 90vw;
+        position: absolute;
+        z-index: -1;
+    }
     .movie-pic {
         -o-object-fit: cover;
         object-fit: cover;
