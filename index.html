@@ -12,50 +12,68 @@
 
     <div class="wrapper">
       <div class="header-instruction-wrapper">
-      <h1 class="headline">Nicer Movie Dicer</h1>
-      <p class="instruction">
-        Don't know which movie you want to watch? Just pick a few and have one
-        handed out at random.
-      </p>
-      <p class="instruction-mobile">
-        Pick a few movies and have one handed out at random.
-      </p>
+        <h1 class="headline">Nicer Movie Dicer</h1>
+        <p class="instruction">
+          Don't know which movie you want to watch? Just pick a few and have one
+          handed out at random.
+        </p>
+        <p class="instruction-mobile">
+          Pick a few movies and have one handed out at random.
+        </p>
       </div>
       <div class="dev-wrapper">
-      <div class="dev">
-        <a href="https://haehnlein-alexander.netlify.app/#start" target="_blank"
-          >developer: Alexander Haehnlein</a
-        >
-      </div>
-      <div class="dev">
-        <a href="https://www.themoviedb.org/" target="_blank"
-          >special thanks to <img src="./api.svg" alt=""
-        /></a>
+        <div class="dev">
+          <a
+            href="https://haehnlein-alexander.netlify.app/#start"
+            target="_blank"
+            >developer: Alexander Haehnlein</a
+          >
+        </div>
+        <div class="dev">
+          <a href="https://www.themoviedb.org/" target="_blank"
+            >special thanks to <img src="./api.svg" alt=""
+          /></a>
+        </div>
       </div>
     </div>
-    </div>
-      <!-- Inputs -->
-      <div class="input-wrapper">
-        <input
-          type="text"
-          id="search"
-          class="search"
-          placeholder="search for movie..."
-          autocomplete="off"
-          oninput="findMovie()"
-        />
+    <!-- Inputs -->
+    <div class="input-wrapper">
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="search for movie..."
+        autocomplete="off"
+        oninput="findMovie()"
+      />
+
+      <div class="btn-wrapper">
+        <button class="clear-btn" id="clearBtn">clear list</button>
+        <button class="randomize-btn" id="diceBtn">dice!</button>
+      </div>
+      <div class="mobile-btn-wrapper">
         <div class="btn-wrapper">
           <button class="clear-btn" id="clearBtn">clear list</button>
           <button class="randomize-btn" id="diceBtn">dice!</button>
         </div>
-        <div class="mobile-btn-wrapper">
-          <div class="btn-wrapper">
-            <button class="clear-btn" id="clearBtn">clear list</button>
-            <button class="randomize-btn" id="diceBtn">dice!</button>
-          </div>
-        </div>
       </div>
-
+    </div>
+    <!-- Inputs Mobil -->
+    <div class="input-wrapper input-wrapper-mobile">
+    <div class="btn-wrapper">
+      <button class="clear-btn" id="clearBtn">clear list</button>
+      <button class="randomize-btn" id="diceBtn">dice!</button>
+    </div>
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="search for movie..."
+        autocomplete="off"
+        oninput="findMovie()"
+      />
+    </div>
+      <!-- Dropdown -->
       <div class="dropdown-wrapper">
         <ul id="dropdown-list" class="dropdown-list"></ul>
         <div class="movie-wrapper" id="movieWrapper"></div>
